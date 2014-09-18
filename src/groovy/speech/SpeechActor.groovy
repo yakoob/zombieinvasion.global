@@ -1,6 +1,6 @@
-package actor
+package speech
 
-
+import actor.BaseActor
 import akka.event.Logging
 import akka.event.LoggingAdapter
 import grails.util.Holders

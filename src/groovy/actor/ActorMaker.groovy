@@ -1,6 +1,6 @@
 package actor
 
-import actor.InboundChannelActor
+import freeswitch.InboundChannelActor
 import akka.actor.ActorRef
 import akka.actor.Props
 import grails.util.Holders

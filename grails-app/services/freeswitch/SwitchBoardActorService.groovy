@@ -1,6 +1,5 @@
 package freeswitch
 
-import actor.SwitchBoardActor
 import akka.actor.ActorRef
 import grails.transaction.Transactional
 

@@ -1,5 +1,7 @@
-package actor
+package freeswitch
 
+import actor.ActorMaker
+import actor.BaseActor
 import akka.event.Logging
 import akka.event.LoggingAdapter
 import event.FreeSwitchEvent

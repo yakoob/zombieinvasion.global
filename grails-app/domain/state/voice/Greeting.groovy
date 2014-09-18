@@ -1,4 +1,4 @@
-package state
+package state.voice
 
 class Greeting extends Voice implements utils.traits.Greeting {
 

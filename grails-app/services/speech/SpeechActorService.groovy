@@ -1,6 +1,5 @@
 package speech
 
-import actor.SpeechActor
 import akka.actor.ActorRef
 import grails.transaction.Transactional
 

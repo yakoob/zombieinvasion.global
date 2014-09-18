@@ -4,12 +4,12 @@ class Audio {
 
     String description
 
-    static constraints = {
-        description nullable: true
+    static mapping = {
+        tablePerHierarchy false
     }
 
-    def beforeInsert() {
-        throw RuntimeException("You must get written permission!!!")
+    static constraints = {
+        description nullable: true
     }
 
     def beforeDelete() {

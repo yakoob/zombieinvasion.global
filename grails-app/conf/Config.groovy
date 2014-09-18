@@ -117,6 +117,7 @@ log4j.main = {
             'org.hibernate',
             'net.sf.ehcache.hibernate',
             'akka',
+            'audio',
             'freeswitch',
             'actor',
             'command',
@@ -124,6 +125,7 @@ log4j.main = {
             'message'
 
     info    'akka',
+            'audio',
             'freeswitch',
             'actor',
             'command',
@@ -131,6 +133,7 @@ log4j.main = {
             'message'
 
     debug   'akka',
+            'audio',
             'freeswitch',
             'actor',
             'command',

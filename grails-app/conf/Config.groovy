@@ -93,7 +93,7 @@ environments {
     production {
         grails.logging.jul.usebridge = false
         grails.config.locations = [ "classpath:app-config.properties"]
-        // TODO: grails.serverURL = "http://www.changeme.com"
+        grails.serverURL = "http://www.zombieinvasion.global"
     }
 }
 
@@ -122,7 +122,8 @@ log4j.main = {
             'actor',
             'command',
             'event',
-            'message'
+            'message',
+            'image'
 
     info    'akka',
             'audio',
@@ -130,7 +131,8 @@ log4j.main = {
             'actor',
             'command',
             'event',
-            'message'
+            'message',
+            'image'
 
     debug   'akka',
             'audio',
@@ -138,7 +140,8 @@ log4j.main = {
             'actor',
             'command',
             'event',
-            'message'
+            'message',
+            'image'
 }
 
 
@@ -212,3 +215,5 @@ freeswitch.port=""
 freeswitch.password=""
 nexus.host=""
 nexus.port=""
+file.audio=""
+file.image=""

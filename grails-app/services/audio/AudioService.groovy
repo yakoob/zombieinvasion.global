@@ -12,8 +12,11 @@ class AudioService {
 
     def akkaService = Holders.applicationContext.getBean("akkaService")
     def speechActorService = Holders.applicationContext.getBean("speechActorService")
+    def grailsApp = Holders.applicationContext.getBean("grailsApplication")
 
     def prepare(Shout message) {
+
+        def rootPath = grailsApp.config.file.audio
 
         def file = new File("/var/audio/${message.audioId.toString()}.mp3")
 

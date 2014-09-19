@@ -1,25 +1,150 @@
+
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"><!--<![endif]-->
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title><g:layoutTitle default="Grails"/></title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
-		<link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">
-		<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
-  		<asset:stylesheet src="application.css"/>
-		<asset:javascript src="application.js"/>
-		<g:layoutHead/>
-	</head>
-	<body>
-		<div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a></div>
-		<g:layoutBody/>
-		<div class="footer" role="contentinfo"></div>
-		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
-	</body>
+
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <title><g:layoutTitle default="Zombie Invasion | Chipping in one Bite at a time" /></title>
+
+    <meta name="description" content="Zombie Invasion Global, Chipping in on Bite at a time. The social network for zombies, zombie walks and all things Zombie..."/>
+    <meta name="keywords" content="zombie invasion,zombie walk,zombie flashmob,flash mob,zombies,living dead,undead,walking dead,dead,dawn of the dead,social network" />
+
+    <link rel="canonical" href="http://www.zombieinvasion.global/"/>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/Modernizr.js"></script>
+
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <script type="text/javascript" src="/js/MainLayoutAPI.js"></script>
+    <script>
+        var mainLayoutApi = new MainLayoutAPI();
+        mainLayoutApi.init();
+    </script>
+
+    <style type="text/css" id="custom-background-css">body.custom-background { background-image: url('/images/back.jpg'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }</style>
+
+    <g:layoutHead/>
+
+</head>
+
+<body class="home blog custom-background">
+
+
+
+
+<div id="topper">
+    <div id="splatter">
+        <div id="wrapper" class="hfeed">
+            <div id="header">
+
+                <div id="masthead">
+
+                    <div id="branding" role="banner">
+                        <h1 id="site-title">
+                            <span>
+                                <a href="#" title="Theme Preview" rel="home">Zombie Invasion</a>
+                            </span>
+                        </h1>
+                        <div id="site-description">Chipping in one Bite at a time...</div>
+                    </div><!-- #branding -->
+
+                    <div id="access" role="navigation">
+                        <div class="skip-link screen-reader-text"><a href="#" title="Skip to content">Skip to content</a></div>
+                        <div class="menu">
+                            <ul>
+                                <li class="current_page_item"><a href="index.html">Home</a></li>
+                                <li class="page_item page-item-1"><a href="invasion_map.html">Invasion Map</a></li>
+                                <li class="page_item page-item-3 page_item_has_children"><a href="#">Account</a>
+                                    <ul class="children" style="visibility: hidden;">
+                                        <li class="page_item page-item-4"><a href="#">Login</a></li>
+                                        <li class="page_item page-item-5"><a href="#">Register</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <span style="float:right;">
+                            <a href="https://twitter.com/Zombi3Invasion" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @Zombi3Invasion</a>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                        </span>
+                    </div><!-- #access -->
+
+                </div><!-- #masthead -->
+
+                <div style="clear:both;"> </div>
+
+            </div><!-- #header -->
+
+            <div id="main">
+                <div id="forbottom">
+                    <div id="container">
+                        <div id="content" role="main">
+
+
+                            <g:layoutBody/>
+
+
+
+
+                        </div><!-- #content -->
+                    </div><!-- #container -->
+
+                    <div id="primary" class="widget-area" role="complementary">
+                        <ul class="xoxo">
+                            <li id="search" class="widget-container widget_search">
+                                <form method="get" id="searchform" action="#">
+                                    <input type="text" value="Search" name="s" id="s" onblur="if (this.value == &#39;&#39;)
+                                    {this.value = &#39;Search&#39;;}" onfocus="if (this.value == &#39;Search&#39;)
+                                    {this.value = &#39;&#39;;}">
+                                    <input type="submit" id="searchsubmit" value="">
+                                </form>
+                            </li>
+
+                            <li id="zombie_walk" class="widget-container">
+                                <h3 class="widget-title">Zombie Walk</h3>
+                                <ul>
+                                    <li><a href="#">Long Beach, Ca - 9/28/14</a></li>
+                                    <li><a href="#">Brussels, BE - 11/23/14</a></li>
+                                    <li><a href="#">Sydney, AU - 12/02/14</a></li>
+                                </ul>
+                            </li>
+
+                            <li id="archives" class="widget-container">
+                                <h3 class="widget-title">Archives</h3>
+                                <ul>
+                                    <li><a href="#">September 2014</a></li>
+                                    <li><a href="#">August 2014</a></li>
+                                    <li><a href="#">June 2014</a></li>
+                                </ul>
+                            </li>
+
+                            <li id="meta" class="widget-container">
+                                <h3 class="widget-title">Meta</h3>
+                                <ul>
+                                    <li><a href="#">Log in</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div> <!-- #forbottom -->
+            </div><!-- #main -->
+
+
+            <div id="footer" role="contentinfo">
+                <div id="colophon"></div>
+                <div id="site-info">
+                    <a href="http://www.yakoobahmad.com/" target="_blank" title="Zombie Invasion"> ZombieInvasion.global is powered by Yakoob Ahmad </a>
+                </div><!-- #site-info -->
+            </div><!-- #footer -->
+
+
+        </div><!-- #wrapper -->
+    </div><!-- #splatter -->
+</div><!-- #topper -->
+
+</body>
 </html>

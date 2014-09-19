@@ -6,10 +6,8 @@ class UrlMappings {
                 // apply constraints here
             }
         }
-        "/shout"(controller: "shout", action: "index")
-        "/prepare/$id"(controller: "shout", action: "prepare")
-        "/shout/$id"(controller: "shout", action: "shout")
-        "/"(view:"/index")
+        "/blogs/$id"(controller: "blog", action: "show")
+        "/"(controller: "home", action: "index")
         "500"(view:'/error')
     }
 }

@@ -7,7 +7,7 @@
             <g:if test="!${isloggedin}">
                 <ul class="children" style="visibility: hidden;">
                     <li class="page_item page-item-4"><a href="/login">Login</a></li>
-                    <li class="page_item page-item-5"><a href="/account/register">Register</a></li>
+                    <li class="page_item page-item-5"><a href="/register">Register</a></li>
                 </ul>
             </g:if>
         </li>

@@ -5,8 +5,7 @@ class AccountController {
     def index() {}
 
     def register(){
-        render "foo"
-        // render (view: "/account/register")
+        render (view: "/account/register")
     }
 
 }

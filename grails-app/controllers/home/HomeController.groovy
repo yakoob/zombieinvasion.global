@@ -7,7 +7,6 @@ import region.Country
 class HomeController {
 
     def blogService
-    def imageService
 
     def index() {
         render view: "index", model: [blogs:blogService.findBlogs()]

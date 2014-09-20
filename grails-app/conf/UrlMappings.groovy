@@ -6,6 +6,7 @@ class UrlMappings {
                 // apply constraints here
             }
         }
+        "/register"(controller: "account", action: "register")
         "/blogs/$id"(controller: "blog", action: "show")
         "/"(controller: "home", action: "index")
         "500"(view:'/error')

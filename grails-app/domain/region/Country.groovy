@@ -10,11 +10,9 @@ class Country {
     Integer fraudRiskLevel
     byte[] flag
 
-
     static mapping = {
         flag sqlType: "longblob"
     }
-
 
     def beforeInsert() {
         throw RuntimeException("You must get written permission!!!")

@@ -54,7 +54,10 @@
 
                     <div id="access" role="navigation">
                         <div class="skip-link screen-reader-text"><a href="#" title="Skip to content">Skip to content</a></div>
+
                         <g:render template="/layouts/navigation"/>
+
+
                         <span style="float:right;">
                             <a href="https://twitter.com/Zombi3Invasion" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @Zombi3Invasion</a>
                             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -80,44 +83,8 @@
 
                         </div><!-- #content -->
                     </div><!-- #container -->
+\
 
-                    <div id="primary" class="widget-area" role="complementary">
-                        <ul class="xoxo">
-                            <li id="search" class="widget-container widget_search">
-                                <form method="get" id="searchform" action="#">
-                                    <input type="text" value="Search" name="s" id="s" onblur="if (this.value == &#39;&#39;)
-                                    {this.value = &#39;Search&#39;;}" onfocus="if (this.value == &#39;Search&#39;)
-                                    {this.value = &#39;&#39;;}">
-                                    <input type="submit" id="searchsubmit" value="">
-                                </form>
-                            </li>
-
-                            <li id="zombie_walk" class="widget-container">
-                                <h3 class="widget-title">Zombie Walk</h3>
-                                <ul>
-                                    <li><a href="#">Long Beach, Ca - 9/28/14</a></li>
-                                    <li><a href="#">Brussels, BE - 11/23/14</a></li>
-                                    <li><a href="#">Sydney, AU - 12/02/14</a></li>
-                                </ul>
-                            </li>
-
-                            <li id="archives" class="widget-container">
-                                <h3 class="widget-title">Archives</h3>
-                                <ul>
-                                    <li><a href="#">September 2014</a></li>
-                                    <li><a href="#">August 2014</a></li>
-                                    <li><a href="#">June 2014</a></li>
-                                </ul>
-                            </li>
-
-                            <li id="meta" class="widget-container">
-                                <h3 class="widget-title">Meta</h3>
-                                <ul>
-                                    <li><a href="#">Log in</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
                     <div style="clear:both;"></div>
                 </div> <!-- #forbottom -->
             </div><!-- #main -->

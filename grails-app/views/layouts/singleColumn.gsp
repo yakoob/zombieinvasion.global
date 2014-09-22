@@ -29,6 +29,7 @@
 
     <g:layoutHead/>
 
+
 </head>
 
 <body class="home blog custom-background">

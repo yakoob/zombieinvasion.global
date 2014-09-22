@@ -29,6 +29,16 @@
 
     <g:layoutHead/>
 
+    <style type="text/css">
+    #container {margin-right:-280px;}
+    #content { width:640px;}
+    #primary,#secondary {width:250px;}
+    #content img {  max-width:600px;}
+    #content .wp-caption{   max-width:610px;}
+    #content p, #content ul, #content ol {font-size:15px;}
+    .entry-time {display:none;}
+    </style>
+
 </head>
 
 <body class="home blog custom-background">

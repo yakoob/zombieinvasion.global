@@ -7,6 +7,7 @@ class UrlMappings {
             }
         }
         "/register"(controller: "account", action: "register")
+        "/city"(controller: "city", action: "index")
         "/city/$id"(controller: "city", action: "index")
         "/blogs/$id"(controller: "blog", action: "show")
         "/"(controller: "home", action: "index")

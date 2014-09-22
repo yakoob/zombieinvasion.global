@@ -16,7 +16,7 @@ class AkkaService {
 	static transactional = false  // transactional behaviour not needed here ...
 
 	private static ActorSystem system
-	private static final String ACTOR_SYSTEM_DEFAULT_NAME = "BattleField"
+	private static final String ACTOR_SYSTEM_DEFAULT_NAME = "ZombieInvasion"
 
 	// sender actor null
 	private static final ActorRef ACTOR_NO_SENDER = ActorRef.noSender()

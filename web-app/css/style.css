@@ -177,6 +177,7 @@ div.menu,
 #splatter {
 	width:100%;
 	background:url(/images/topper.jpg) repeat-x;
+    z-index: 99999;
 }
 
 #topper {

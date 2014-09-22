@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-    <meta name='layout' content='singleColumn'/>
+    <meta name='layout' content='map'/>
+
 </head>
-
 <body>
-map
-</body>
 
+
+</body>
 </html>
+
+
+

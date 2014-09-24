@@ -145,11 +145,20 @@ log4j.main = {
 }
 
 
+
+
 grails.plugin.springsecurity.rejectIfNoRule = false
 grails.plugin.springsecurity.fii.rejectPublicInvocations = false
-grails.plugin.springsecurity.userLookup.userDomainClassName = '.user.User'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'user.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'user.UserRole'
 grails.plugin.springsecurity.authority.className = 'user.Role'
+grails.plugin.springsecurity.twitter.domain.classname='user.TwitterUser'
+
+
+
+
+
+
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         '/':                              ['permitAll'],
         '/index':                         ['permitAll'],
@@ -165,11 +174,14 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         '/simpleCaptcha/captcha':         ['permitAll'],
         '/**/contactus/**':               ['permitAll'],
         '/contactus/**':                  ['permitAll'],
-        '/simpleCaptcha':                 ['permitAll']
-
+        '/simpleCaptcha':                 ['permitAll'],
+        '/login/**':                      ['permitAll'],
+        '/logout/**':                     ['permitAll'],
+        '/oauth/**':                      ['permitAll']
 ]
 
 grails.plugin.springsecurity.logout.postOnly = false
+
 
 contactus.to.address='info@zombieinvasion.global'
 contactus.email.view='/contact/emailBody'
@@ -217,3 +229,10 @@ nexus.host=""
 nexus.port=""
 file.audio=""
 file.image=""
+
+oauth.consumerKey=''
+oauth.consumerSecret=''
+oauth.accessToken=''
+oauth.accessTokenSecret=''
+grails.plugin.springsecurity.twitter.consumerKey=''
+grails.plugin.springsecurity.twitter.consumerSecret=''

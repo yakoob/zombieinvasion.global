@@ -21,18 +21,19 @@ class User {
 		username blank: false, unique: true
 		password blank: false
         email nullable: true
-        account blank: false, nullable: false
+        account blank: true, nullable: true
 	}
 
 	static mapping = {
 		password column: '`password`'
 	}
 
-	Set<Role> getAuthorities() {
-		UserRole.findAllByUser(this).collect { it.role }
-	}
+    Set<Role> getAuthorities() {
+        UserRole.findAllByUser(this).collect { it.role } as Set
+    }
 
 	def beforeInsert() {
+        this.account = new Account().save()
 		encodePassword()
 	}
 

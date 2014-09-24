@@ -61,20 +61,20 @@ DESCRIPTION: Two-column fixed layout with one sidebar right of content
 
 #container {
 	float: left;
-	margin: 0 -240px 0 0;
+	margin: 0 -340px 0 0;
 	width: 100%;padding-top:30px;
 	background:url(/images/main_top.jpg) left top no-repeat;
 
 }
 #content {
 	margin: 0 0px 0 20px;
-	width:650px;
+	width:550px;
 }
 #primary,
 #secondary {
 	float: right;
 	overflow: hidden;
-	width:220px;
+	width:320px;
 
 }
 #primary {
@@ -96,7 +96,7 @@ DESCRIPTION: One centered column with no sidebar
 
 .one-column #content {
 	margin: 0 auto;
-	width: 900px;
+	width: 1000px;
 }
 
 /*
@@ -106,7 +106,7 @@ DESCRIPTION: Full width content with no sidebar; used for attachment pages
 
 .single-attachment #content {
 	margin: 0 auto;
-	width: 900px;
+	width: 1000px;
 }
 
 
@@ -195,7 +195,7 @@ div.menu,
 #footer-widget-area .widget-area {
 	float: left;
 	margin-right: 20px;
-	width: 220px;
+	width: 350px;
 }
 #footer-widget-area #fourth {
 	margin-right: 0;
@@ -1575,4 +1575,15 @@ float:right;
 	.home .sticky {
 		border: none;
 	}
+}
+/* Pagination fix */
+.pagination .disabled, .pagination .currentStep, .pagination .step {
+    float: left;
+    padding: 0 14px;
+    border-right: 1px solid;
+    line-height: 34px;
+    border-right-color: rgba(0, 0, 0, 0.15);
+}
+.pagination .prevLink {
+    border-left: 1px solid #DDD !important;
 }

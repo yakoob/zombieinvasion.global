@@ -30,7 +30,7 @@ class Account {
     }
 
     static constraints = {
-        timeZone nullable: false
+        timeZone nullable: true
     }
 
     static mapping = {
@@ -40,17 +40,8 @@ class Account {
         version false
     }
 
-    def beforeInsert() {
-        throw RuntimeException("You must get written permission!!!")
-    }
-
     def beforeDelete() {
         throw RuntimeException("You must get written permission!!!")
     }
-
-    def beforeUpdate(){
-        throw RuntimeException("You must get written permission!!!")
-    }
-
 
 }

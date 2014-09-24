@@ -29,16 +29,6 @@
 
     <g:layoutHead/>
 
-    <style type="text/css">
-    #container {margin-right:-280px;}
-    #content { width:640px;}
-    #primary,#secondary {width:250px;}
-    #content img {  max-width:600px;}
-    #content .wp-caption{   max-width:610px;}
-    #content p, #content ul, #content ol {font-size:15px;}
-    .entry-time {display:none;}
-    </style>
-
 </head>
 
 <body class="home blog custom-background">
@@ -78,58 +68,11 @@
             </div><!-- #header -->
 
             <div id="main">
-                <div id="forbottom">
-                    <div id="container">
-                        <div id="content" role="main">
 
 
-                            <g:layoutBody/>
+                <g:layoutBody/>
 
 
-
-
-                        </div><!-- #content -->
-                    </div><!-- #container -->
-
-                    <div id="primary" class="widget-area" role="complementary">
-                        <ul class="xoxo">
-                            <li id="search" class="widget-container widget_search">
-                                <form method="get" id="searchform" action="#">
-                                    <input type="text" value="Search" name="s" id="s" onblur="if (this.value == &#39;&#39;)
-                                    {this.value = &#39;Search&#39;;}" onfocus="if (this.value == &#39;Search&#39;)
-                                    {this.value = &#39;&#39;;}">
-                                    <input type="submit" id="searchsubmit" value="">
-                                </form>
-                            </li>
-
-                            <li id="zombie_walk" class="widget-container">
-                                <h3 class="widget-title">Zombie Walk</h3>
-                                <ul>
-                                    <li><a href="#">Long Beach, Ca - 9/28/14</a></li>
-                                    <li><a href="#">Brussels, BE - 11/23/14</a></li>
-                                    <li><a href="#">Sydney, AU - 12/02/14</a></li>
-                                </ul>
-                            </li>
-
-                            <li id="archives" class="widget-container">
-                                <h3 class="widget-title">Archives</h3>
-                                <ul>
-                                    <li><a href="#">September 2014</a></li>
-                                    <li><a href="#">August 2014</a></li>
-                                    <li><a href="#">June 2014</a></li>
-                                </ul>
-                            </li>
-
-                            <li id="meta" class="widget-container">
-                                <h3 class="widget-title">Meta</h3>
-                                <ul>
-                                    <li><a href="#">Log in</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div style="clear:both;"></div>
-                </div> <!-- #forbottom -->
             </div><!-- #main -->
 
 

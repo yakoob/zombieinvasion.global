@@ -43,6 +43,7 @@ grails.project.dependency.resolution = {
 
         mavenRepo "http://${externalConfiguration.nexus.host}:${externalConfiguration.nexus.port}/nexus/content/groups/public/"
         mavenRepo "http://repo.akka.io/snapshots/"
+        mavenRepo "http://repo.spring.io/milestone/"
 
         grailsPlugins()
         grailsHome()
@@ -69,6 +70,7 @@ grails.project.dependency.resolution = {
         compile "org.jadira.usertype:usertype.jodatime:2.0"
         compile "com.google:rfc:1.0"
         compile "com.maxmind.geoip:geoip-api:1.2.14"
+        compile "org.twitter4j:twitter4j-core:[4.0,)"
     }
 
     plugins {
@@ -86,9 +88,15 @@ grails.project.dependency.resolution = {
         runtime ":database-migration:1.4.0"
         runtime ":jquery:1.11.1"
 
-        compile ":spring-security-core:2.0-RC4"
+        compile ':spring-security-core:2.0-RC4'
         compile ":spring-websocket:1.1.0"
         compile ":mail:1.0.7"
+
+        // compile ":spring-security-oauth:2.1.0-RC4"
+
+        compile ":spring-security-twitter:0.6.2"
+
+
 
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.9.0"

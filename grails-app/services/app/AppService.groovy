@@ -21,7 +21,7 @@ class AppService {
             akkaService.init()
         }
         createActors()
-        freeSwitchConnectionService.connect(grailsApplication.config.freeswitch.host, new Integer(grailsApplication.config.freeswitch.port))
+        // freeSwitchConnectionService.connect(grailsApplication.config.freeswitch.host, new Integer(grailsApplication.config.freeswitch.port))
         LAST_HEARTBEAT = DateTime.now()
     }
 

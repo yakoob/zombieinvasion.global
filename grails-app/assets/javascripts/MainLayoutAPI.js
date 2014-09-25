@@ -4,26 +4,11 @@ var MainLayoutAPI = function(){
     var pageContentUri
 
     function init(){
-
         console.log("in init");
         // Give Modernizr.load a string, an object, or an array of strings and objects
-        Modernizr.load([
-            {
-                // You can also give arrays of resources to load.
-                both : [
-                    '/assets/sockjs.js?compile=false',
-                    '/assets/stomp.js?compile=false',
-                    '/assets/spring-websocket.js?compile=false',
-                    '/css/magnific-popup.css', /* http://dimsemenov.com/plugins/magnific-popup/documentation.html#api */
-                    '/js/jquery.magnific-popup.min.js'
-                ],
 
-                complete : function () {
-                    executeLayout();
-                }
-            }
-            /* , '/js/google-tracking.js' */
-        ]);
+        executeLayout();
+
     }
 
     function executeLayout(){
@@ -83,7 +68,7 @@ var MainLayoutAPI = function(){
         var uri = pageContentUri.replace("#", "/");
 
         $.ajax({
-            url: "/" + uri,
+            url: uri,
             type: "get",
             dataType: "html",
             success: function (data) {
@@ -136,3 +121,5 @@ var MainLayoutAPI = function(){
 }
 
 
+var mainLayoutApi = new MainLayoutAPI();
+mainLayoutApi.init();

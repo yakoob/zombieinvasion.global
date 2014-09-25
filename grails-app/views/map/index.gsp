@@ -3,9 +3,6 @@
     <title>Invasion Map - Track the global outbreak in real-time.</title>
     <meta name="layout" content="singleColumn" />
 
-
-    <script type="text/javascript" src="/js/jquery.min.js"></script>
-
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 
 
@@ -62,7 +59,7 @@
             map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
 
             // To add the marker to the map, call setMap();
-            marker.setMap(map);
+           //  marker.setMap(map);
 
 
 
@@ -73,7 +70,7 @@
 
 
         function addMarker(latitude, longitude){
-            var image = "/images/zombie_marker.png";
+            var image = "${assetPath(src: 'zombie_marker.png')}";
 
             var myLatLng = new google.maps.LatLng(latitude, longitude);
             var marker = new google.maps.Marker({
@@ -94,7 +91,6 @@
 </head>
 <body>
 
-
 <a onclick="addMarker('-33.83333','151.01667')">Epping</a>
  |
 <a onclick="addMarker('-34.06564','151.01266')">Engadine</a>
@@ -102,8 +98,6 @@
 <a onclick="addMarker('-32.18136','152.51715')">Forster</a>
 <hr>
 
-
-population: 4000 | infected 20
 <div id="map-canvas" style="width:900px; height:700px">
 </div>
 </body>

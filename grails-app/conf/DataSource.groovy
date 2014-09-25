@@ -2,18 +2,18 @@ def props = new Properties()
 
 environments {
     development {
-        new File("grails-app/conf/app-config-development.properties").withReader{
+        new File("/deployments/properties/zombieinvasion.global/app-config.properties").withReader{
             props.load(it)
         }
     }
     test {
-        new File("grails-app/conf/app-config.properties").withReader{
+        new File("/deployments/properties/zombieinvasion.global/app-config.properties").withReader{
             props.load(it)
         }
     }
     production {
         grails.logging.jul.usebridge = false
-        new File("grails-app/conf/app-config.properties").withReader{
+        new File("/deployments/properties/zombieinvasion.global/app-config.properties").withReader{
             props.load(it)
         }
     }

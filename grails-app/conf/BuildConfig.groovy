@@ -1,7 +1,9 @@
 def props = new Properties()
-new File("grails-app/conf/app-config.properties").withReader{
+
+new File("/deployments/properties/zombieinvasion.global/app-config.properties").withReader{
     props.load(it)
 }
+
 def externalConfiguration = new ConfigSlurper().parse(props)
 grails.servlet.version = "3.0" // Change depending on target container compliance (2.5 or 3.0)
 grails.project.class.dir = "target/classes"
@@ -11,6 +13,8 @@ grails.project.work.dir = "target/work"
 grails.project.target.level = 1.6
 grails.project.source.level = 1.6
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
+
+grails.server.port.http = 8085
 
 grails.project.fork = [
         // configure settings for compilation JVM, note that if you alter the Groovy version forked compilation is required

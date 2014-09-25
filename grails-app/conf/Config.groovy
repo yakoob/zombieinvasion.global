@@ -8,6 +8,10 @@
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
+grails.config.locations = [
+        "file:/deployments/properties/zombieinvasion.global/app-config.properties"
+]
+
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 
 // The ACCEPT header will not be used for content negotiation for user agents containing the following strings (defaults to the 4 major rendering engines)
@@ -85,14 +89,13 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-        grails.config.locations = [ "classpath:app-config-development.properties"]
+
     }
     test {
-        grails.config.locations = [ "classpath:app-config.properties"]
+
     }
     production {
         grails.logging.jul.usebridge = false
-        grails.config.locations = [ "classpath:app-config.properties"]
         grails.serverURL = "http://www.zombieinvasion.global"
     }
 }

@@ -10,22 +10,21 @@
     <meta name="description" content="Zombie Invasion Global, Chipping in on Bite at a time. The social network for zombies, zombie walks and all things Zombie..."/>
     <meta name="keywords" content="zombie invasion,zombie walk,zombie flashmob,flash mob,zombies,living dead,undead,walking dead,dead,dawn of the dead,social network" />
 
-    <link rel="canonical" href="http://www.zombieinvasion.global/"/>
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://zombieinvasion.global/"/>
+    <link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
+    <link rel="icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
 
-    <script type="text/javascript" src="/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/Modernizr.js"></script>
+    <asset:javascript src="jquery.min.js"/>
+    <asset:javascript src="Modernizr.js"/>
+    <asset:javascript src="sockjs.js"/>
+    <asset:javascript src="stomp.js"/>
+    <asset:javascript src="spring-websocket.js"/>
+    <asset:javascript src="jquery.magnific-popup.min.js"/>
+    <asset:stylesheet src="style.css"/>
+    <asset:stylesheet src="magnific-popup.css"/>
+    <asset:javascript src="MainLayoutAPI.js"/>
 
-    <link rel="stylesheet" href="/css/style.css" />
-
-    <script type="text/javascript" src="/js/MainLayoutAPI.js"></script>
-    <script>
-        var mainLayoutApi = new MainLayoutAPI();
-        mainLayoutApi.init();
-    </script>
-
-    <style type="text/css" id="custom-background-css">body.custom-background { background-image: url('/images/back.jpg'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }</style>
+    <style type="text/css" id="custom-background-css">body.custom-background { background-image: url('${assetPath(src:'back.jpg')}'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }</style>
 
     <g:layoutHead/>
 

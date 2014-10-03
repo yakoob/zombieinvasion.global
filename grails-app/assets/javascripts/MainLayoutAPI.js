@@ -4,11 +4,7 @@ var MainLayoutAPI = function(){
     var pageContentUri
 
     function init(){
-        console.log("in init");
-        // Give Modernizr.load a string, an object, or an array of strings and objects
-
         executeLayout();
-
     }
 
     function executeLayout(){
@@ -24,7 +20,6 @@ var MainLayoutAPI = function(){
         var client = Stomp.over(socket);
         client.connect({}, function() {
             client.subscribe(topic, function(message) {
-                console.log(message);
                 if (message.body) {
                     $("#quoteMsgDiv").html(message.body);
                 }

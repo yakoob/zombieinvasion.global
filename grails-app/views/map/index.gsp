@@ -91,14 +91,32 @@
 </head>
 <body>
 
-<a onclick="addMarker('-33.83333','151.01667')">Epping</a>
- |
-<a onclick="addMarker('-34.06564','151.01266')">Engadine</a>
- |
-<a onclick="addMarker('-32.18136','152.51715')">Forster</a>
-<hr>
 
-<div id="map-canvas" style="width:900px; height:700px">
+<ul class="nav nav-pills">
+    <li>
+        <a href="#" onclick="addMarker('-33.83333','151.01667')">
+            <span class="badge pull-right">21</span>
+            Epping
+        </a>
+    </li>
+
+    <li>
+        <a href="#" onclick="addMarker('-34.06564','151.01266')">
+            <span class="badge pull-right">56</span>
+            Engadine
+        </a>
+    </li>
+
+    <li>
+        <a href="#" onclick="addMarker('-32.18136','152.51715')">
+            <span class="badge pull-right">2</span>
+            Forster
+        </a>
+    </li>
+
+</ul>
+
+<div id="map-canvas" style="width:100%; height:700px">
 </div>
 </body>
 </html>

@@ -1,3 +1,10 @@
+<html>
+<head>
+    <title>Invasion Map - Track the global outbreak in real-time.</title>
+    <meta name="layout" content="singleColumn" />
+
+</head>
+<body>
 <article class="is-post is-post-excerpt">
 
 
@@ -18,7 +25,7 @@
                 </g:if>
 
 
-                <g:formRemote name="ContactUss" url="[controller:'ContactUs', action:'send']" update="siteContent">
+                <g:form name="ContactUss" url="[controller:'ContactUs', action:'send']" update="siteContent">
 
 
 
@@ -117,10 +124,10 @@
 
                     <div class="fieldcontain" >
                         <label for="captcha"></label><br>
-                        <g:submitToRemote class="myformsubmit" url="[controller:'ContactUs', action:'send']" update="siteContent"  value="Contact us" />
+                        <g:actionSubmit class="myformsubmit" url="[controller:'ContactUs', action:'send']" update="siteContent"  value="Contact us" />
                     </div>
 
-                </g:formRemote>
+                </g:form>
             </div>
 
         </div>
@@ -130,3 +137,5 @@
 </article>
 
 
+</body>
+</html>

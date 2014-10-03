@@ -159,9 +159,6 @@ grails.plugin.springsecurity.twitter.domain.classname='user.TwitterUser'
 
 
 
-
-
-
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         '/':                              ['permitAll'],
         '/index':                         ['permitAll'],

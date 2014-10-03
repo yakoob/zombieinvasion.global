@@ -14,79 +14,85 @@
     <link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
     <link rel="icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
 
+    <asset:stylesheet src="style.css"/>
+    <asset:stylesheet src="colorbox.css"/>
+    <asset:stylesheet src="bootstrap.min.css"/>
+
     <asset:javascript src="jquery.min.js"/>
     <asset:javascript src="Modernizr.js"/>
     <asset:javascript src="sockjs.js"/>
     <asset:javascript src="stomp.js"/>
     <asset:javascript src="spring-websocket.js"/>
-    <asset:javascript src="jquery.magnific-popup.min.js"/>
-    <asset:stylesheet src="style.css"/>
-    <asset:stylesheet src="magnific-popup.css"/>
+    <asset:javascript src="jquery.colorbox-min.js"/>
+    <asset:javascript src="bootstrap.min.js"/>
     <asset:javascript src="MainLayoutAPI.js"/>
 
-
-    <style type="text/css" id="custom-background-css">body.custom-background { background-image: url('${assetPath(src:'back.jpg')}'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }</style>
 
     <g:layoutHead/>
 
 </head>
 
-<body class="home blog custom-background">
-
-
+<body>
 
 
 <div id="topper">
+
     <div id="splatter">
-        <div id="wrapper" class="hfeed">
+
+        <div id="wrapper">
+
             <div id="header">
 
-                <div id="masthead">
+                <h1 id="site-title">
+                    <span>
+                        <a href="/" title="Theme Preview" rel="home">Zombie Invasion</a>
+                    </span>
+                </h1>
 
-                    <div id="branding" role="banner">
-                        <h1 id="site-title">
-                            <span>
-                                <a href="#" title="Theme Preview" rel="home">Zombie Invasion</a>
-                            </span>
-                        </h1>
-                        <div id="site-description">Chipping in one Bite at a time...</div>
-                    </div><!-- #branding -->
+                <div id="site-description">Chipping in one Bite at a time...</div>
 
-                    <div id="access" role="navigation">
-                        <div class="skip-link screen-reader-text"><a href="#" title="Skip to content">Skip to content</a></div>
-                        <g:render template="/layouts/navigation"/>
-                        <span style="float:right;">
-                            <a href="https://twitter.com/Zombi3Invasion" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @Zombi3Invasion</a>
-                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-                        </span>
-                    </div><!-- #access -->
+                <g:render template="/layouts/navigation"/>
 
-                </div><!-- #masthead -->
-
-                <div style="clear:both;"> </div>
 
             </div><!-- #header -->
 
-            <div id="main">
 
 
-                <g:layoutBody/>
 
 
-            </div><!-- #main -->
+
+            <div class="container">
+
+                <div class="row row-offcanvas row-offcanvas-right">
 
 
-            <div id="footer" role="contentinfo">
-                <div id="colophon"></div>
-                <div id="site-info">
-                    <a href="http://www.yakoobahmad.com/" target="_blank" title="Zombie Invasion"> ZombieInvasion.global is powered by Yakoob Ahmad </a>
-                </div><!-- #site-info -->
-            </div><!-- #footer -->
+                    <g:layoutBody/>
 
 
-        </div><!-- #wrapper -->
-    </div><!-- #splatter -->
-</div><!-- #topper -->
+                </div><!--/row-->
+
+
+
+                <div id="footer" role="contentinfo">
+                    <div id="colophon"></div>
+                    <div id="site-info">
+                        <a href="http://www.yakoobahmad.com/" target="_blank" title="Zombie Invasion"> ZombieInvasion.global is powered by Yakoob Ahmad </a>
+                    </div><!-- #site-info -->
+                </div><!-- #footer -->
+
+
+            </div><!--/.container-->
+
+</div></div></div>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-55350019-1', 'auto');
+    ga('send', 'pageview');
+</script>
 
 </body>
 </html>

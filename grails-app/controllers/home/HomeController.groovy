@@ -22,7 +22,7 @@ class HomeController {
             params.offset = 0
 
         if(!params.max)
-            params.max = 15
+            params.max = 30
 
         params.sort = "population"
         params.order = "desc"

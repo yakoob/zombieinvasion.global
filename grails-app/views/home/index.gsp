@@ -19,18 +19,28 @@
 
             <asset:image src="blog_zombies.png" width="280"/>
 
+            <center>
+                <g:paginate class="nopaddingNav" controller="home" maxsteps="4" action="index" total="${cityCount}" />
+            </center>
+
             <ul class="list-group">
+
                 <g:each in="${cities}">
                 <li class="list-group-item">
                     <span class="badge"><g:formatNumber number="${it.population}" format="###,##0" /></span>
                     ${it.city}, ${it.countryCode}
                 </li>
                 </g:each>
+
+                <center>
+                    <g:paginate class="nopaddingNav" controller="home" maxsteps="4" action="index" total="${cityCount}" />
+                </center>
+
             </ul>
 
 
 
-            <g:paginate controller="home" maxsteps="7" omitNext="true" omitPrev="true" action="index" total="${cityCount}" />
+
 
 
         </div>

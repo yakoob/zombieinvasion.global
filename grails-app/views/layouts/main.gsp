@@ -27,7 +27,7 @@
     <asset:javascript src="jquery.colorbox-min.js"/>
     <asset:javascript src="bootstrap.min.js"/>
     <asset:javascript src="MainLayoutAPI.js"/>
-    
+
 
     <g:layoutHead/>
 
@@ -58,10 +58,6 @@
                 <g:render template="/layouts/navigation"/>
 
             </div><!-- #header -->
-
-
-
-
 
 
             <div class="container">

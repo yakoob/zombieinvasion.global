@@ -222,3 +222,17 @@ p {
 table.blogFooter td.tags {
     text-align: right !important;
 }
+
+.nopaddingNav {
+    text-color: #99090A !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.pagination>li>a, .pagination>li>span {
+    color: #99090A !important;
+}
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus{
+    background-color: #dca7a7 !important;
+    border-color: #dca7a7 !important;
+}

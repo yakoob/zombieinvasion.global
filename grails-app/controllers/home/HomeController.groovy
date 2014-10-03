@@ -1,5 +1,6 @@
 package home
 
+import blog.BlogEntry
 import groovy.util.logging.Log4j
 import region.City
 import region.Country
@@ -34,7 +35,7 @@ class HomeController {
         }
 
 
-        render view: "index", model: [blogs:blogService.findBlogs(), cities: City.list(params), cityCount:City.count, askForEmail:askForEmail]
+        render view: "index", model: [blogs:blogService.findBlogs(), cities: City.list(params), cityCount:City.count, askForEmail:askForEmail, hasStory:BlogEntry.findByAuthor(springSecurityService.currentUser)?true:false]
 
 
     }

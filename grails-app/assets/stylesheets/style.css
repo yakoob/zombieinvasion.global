@@ -209,26 +209,16 @@ a:hover {
 }
 
 
-
-/* Pagination fix */
-.pagination .disabled, .pagination .currentStep, .pagination .step {
-    float: left;
-    padding: 0 5px;
-    border-right: 1px solid;
-    line-height: 34px;
-    border-right-color: rgba(0, 0, 0, 0.15);
-}
-.pagination .prevLink {
-    border-left: 1px solid #DDD !important;
-}
-
 p {
     font-family:Verdana, Geneva, sans-serif; color: #99090A;
 }
 
-.jumbotron {
+.jumbotron2 {
     background:url(main_center.jpg) right top;
     padding-top:30px;
     background-color: #000000 !important;
 }
 
+table.blogFooter td.tags {
+    text-align: right !important;
+}

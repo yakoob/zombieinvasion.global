@@ -5,11 +5,11 @@ import grails.plugin.springsecurity.annotation.Secured
 @Secured("permitAll")
 class BlogController {
 
+    def springSecurityService
     def blogService
 
     def index() {
-
-        render view: "index", model: [blogs:blogService.findBlogs()]
+        render view: "index", model: [blogs:blogService.findBlogs(), hasStory:BlogEntry.findByAuthor(springSecurityService.currentUser)?true:false]
     }
 
     def show() {

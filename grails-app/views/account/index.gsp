@@ -3,11 +3,15 @@
 <html>
 
 <head>
-    <meta name='layout' content='singleColumn'/>
+    <meta name='layout' content='main'/>
 </head>
 
 <body>
+
+<div class="jumbotron">
+
 <sec:ifLoggedIn>
+
     <div class="message">Authenticated</div>
     Hello <sec:username/>!
     <hr/>
@@ -28,6 +32,11 @@
     <div class="message">Not authenticated</div>
     <twitterAuth:button />
 </sec:ifNotLoggedIn>
+
+
+</div>
+
+
 </body>
 
 </html>

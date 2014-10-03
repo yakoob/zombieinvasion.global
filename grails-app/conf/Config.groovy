@@ -236,3 +236,5 @@ oauth.accessToken=''
 oauth.accessTokenSecret=''
 grails.plugin.springsecurity.twitter.consumerKey=''
 grails.plugin.springsecurity.twitter.consumerSecret=''
+
+app.readOnly=false

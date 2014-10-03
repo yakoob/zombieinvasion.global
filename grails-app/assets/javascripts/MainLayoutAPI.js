@@ -11,7 +11,7 @@ var MainLayoutAPI = function(){
         menu();
         // searchListener();
         // webSocketListener();
-        magnificPopup();
+        colorBox();
     }
 
     function webSocketListener(){
@@ -40,7 +40,7 @@ var MainLayoutAPI = function(){
         function search(force) {
             var existingString = $("#blog_search").val();
             if (!force && existingString.length < 3) return; //wasn't enter, not > 2 char
-            loadPage('content-inner','blog/search?searchPhrase=' + existingString);
+            loadPage('body-content','blog/search?searchPhrase=' + existingString);
         }
 
         $(document).ready(function() {
@@ -68,9 +68,9 @@ var MainLayoutAPI = function(){
             dataType: "html",
             success: function (data) {
                 // clear current body content
-                $('#content').html('');
+                $('#body-content').html('');
                 // add rest response data to body
-                $(data).appendTo('#content');
+                $(data).appendTo('#body-content');
             }
         });
 
@@ -84,11 +84,23 @@ var MainLayoutAPI = function(){
         pageContentUri = uri;
     }
 
-    function magnificPopup(){
-        $('.comment-popup').magnificPopup({
-            type: 'ajax',
-            alignTop: true,
-            overflowY: 'scroll' // as we know that popup content is tall we set scroll overflow by default to avoid jump
+    function colorBox(){
+        $(document).ready(function(){
+            // $(".ajax").colorbox({rel:'group3', transition:"none", width:"50%", height:"50%"});
+
+            $(".ajax").colorbox({
+                width:"50%", height:"50%"
+                /*
+                ,
+                onOpen:function(){ console.log('onOpen: colorbox is about to open'); },
+                onLoad:function(){ console.log('onLoad: colorbox has started to load the targeted content'); },
+                onComplete:function(){ console.log('onComplete: colorbox has displayed the loaded content'); },
+                onCleanup:function(){ console.log('onCleanup: colorbox has begun the close process'); },
+                onClosed:function(){ console.log('onClosed: colorbox has completely closed'); }
+                */
+            });
+
+
         });
     }
 
@@ -114,7 +126,3 @@ var MainLayoutAPI = function(){
 
 
 }
-
-
-var mainLayoutApi = new MainLayoutAPI();
-mainLayoutApi.init();

@@ -18,6 +18,7 @@
     <asset:stylesheet src="style.css"/>
     <asset:stylesheet src="colorbox.css"/>
     <asset:stylesheet src="bootstrap.min.css"/>
+    <asset:stylesheet src="bootstrap-theme.min.css"/>
 
     <asset:javascript src="jquery.min.js"/>
     <asset:javascript src="Modernizr.js"/>
@@ -28,9 +29,13 @@
     <asset:javascript src="bootstrap.min.js"/>
     <asset:javascript src="MainLayoutAPI.js"/>
 
-    <style type="text/css" id="custom-background-css">body.custom-background { background-image: url('${assetPath(src:'back.jpg')}'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }</style>
 
     <g:layoutHead/>
+
+    <asset:script>
+        var mainLayoutApi = new MainLayoutAPI();
+        mainLayoutApi.init();
+    </asset:script>
 
 
 </head>

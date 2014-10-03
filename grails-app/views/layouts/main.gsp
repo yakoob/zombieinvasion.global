@@ -17,6 +17,7 @@
     <asset:stylesheet src="style.css"/>
     <asset:stylesheet src="colorbox.css"/>
     <asset:stylesheet src="bootstrap.min.css"/>
+    <asset:stylesheet src="bootstrap-theme.min.css"/>
 
     <asset:javascript src="jquery.min.js"/>
     <asset:javascript src="Modernizr.js"/>
@@ -26,14 +27,17 @@
     <asset:javascript src="jquery.colorbox-min.js"/>
     <asset:javascript src="bootstrap.min.js"/>
     <asset:javascript src="MainLayoutAPI.js"/>
-
+    
 
     <g:layoutHead/>
 
+    <script>
+        var mainLayoutApi = new MainLayoutAPI();
+        mainLayoutApi.init();
+    </script>
 </head>
 
 <body>
-
 
 <div id="topper">
 
@@ -45,14 +49,13 @@
 
                 <h1 id="site-title">
                     <span>
-                        <a href="/" title="Theme Preview" rel="home">Zombie Invasion</a>
+                        <a href="home" title="Theme Preview" rel="home">Zombie Invasion</a>
                     </span>
                 </h1>
 
                 <div id="site-description">Chipping in one Bite at a time...</div>
 
                 <g:render template="/layouts/navigation"/>
-
 
             </div><!-- #header -->
 
@@ -65,9 +68,7 @@
 
                 <div class="row row-offcanvas row-offcanvas-right">
 
-
-                    <g:layoutBody/>
-
+                    <div id="body-content"><g:layoutBody/></div>
 
                 </div><!--/row-->
 

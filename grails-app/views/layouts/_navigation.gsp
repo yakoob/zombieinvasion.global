@@ -30,12 +30,12 @@
 
                 <li class="${ ni == "home" ? 'active':''}"><a href="home?ni=home">Home</a></li>
                 <li class="${ ni == "map" ? 'active':''}"><a href="map?ni=map">Invasion Map</a></li>
-
-                <li><a href="#about">About</a></li>
-                <li class="${ ni == "contact" ? 'active':''}"><a href="contactUs?ni=contact">Contact</a></li>
                 <li class="${ ni == "account" ? 'active':''}"><a href="account?ni=account">Account</a></li>
 
                 <%---
+                <li><a href="#about">About</a></li>
+                <li class="${ ni == "contact" ? 'active':''}"><a href="contactUs?ni=contact">Contact</a></li>
+
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -52,3 +52,7 @@
 
     </div>
 </div>
+
+<g:if test="${grailsApplication.config.app.readOnly.toBoolean()}">
+<div class="alert alert-danger" role="alert"><asset:image src="zombie.svg" width="40"/> <strong>... Sorry for the inconvenience, but this application is in Read-Only mode while we upgrade our servers to handle the unexpected hoards of zombies...</strong></div>
+</g:if>

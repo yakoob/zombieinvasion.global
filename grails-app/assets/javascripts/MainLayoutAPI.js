@@ -14,7 +14,8 @@ var MainLayoutAPI = function(){
         colorBox();
     }
 
-    function webSocketListener(){
+    function webSocketListener(topic){
+        // var topic = '/topic/random_quotes';
         var topic = '/topic/random_quotes';
         var socket = new SockJS("/stomp");
         var client = Stomp.over(socket);
@@ -25,7 +26,6 @@ var MainLayoutAPI = function(){
                 }
             });
         });
-
     }
 
     function searchListener(){

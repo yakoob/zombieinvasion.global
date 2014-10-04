@@ -31,9 +31,10 @@
 </sec:ifLoggedIn>
 
 
-
-
 <g:each in="${blogs}">
+
+
+
 
 
     <div class="jumbotron jumbotron2">
@@ -55,17 +56,22 @@
 
         <div class="well well-sm">
 
+            <div id = "foobar${it.id}"></div>
+
             <table width="100%" border="0" class="blogFooter">
                 <tr>
-                    <td>
 
+                    <td>
+                        <g:formRemote id="likeForm${it.id}" name="likeForm${it.id}" update="foobar${it.id}" url='[uri: "/like/${it.id}"]'>
                         <ul class="nav nav-pills">
 
                             <li>
-                                <a href="#">
+
+                                <button style="border:0;background-color:transparent;color:#99090A;margin-top: 9px;">
                                     <span class="glyphicon glyphicon-thumbs-up"></span> like
-                                    <span class="badge">0</span>
-                                </a>
+                                    <span class="badge" id="likesCount${it.id}">${it?.likes?.size()}</span>
+                                </button>
+
                             </li>
 
                             <li>
@@ -73,13 +79,14 @@
                                 <g:else>
                                     <a class='ajax' href="comment/${it.id}" title="comment on: ${it.subject}">
                                         Comments
-                                        <span class="badge">${it.comments?.size()}</span>
+                                        <span class="badge" id="commentsCount${it.id}">${it.comments?.size()}</span>
                                     </a>
 
                                 </g:else>
                             </li>
 
                         </ul>
+                        </g:formRemote>
                     </td>
                     <td class="tags" width="30%">
                         <ul class="nav nav-pills">
@@ -95,4 +102,35 @@
 
 
     </div>
+
+    <script>
+
+        $(document).ready(function() {
+
+
+            var socket${it.id} = new SockJS("${createLink(uri: '/stomp')}");
+
+            var client${it.id} = Stomp.over(socket${it.id});
+
+            var topic${it.id} = '/topic/blog/${it.id}';
+
+            client${it.id}.connect({}, function () {
+
+                client${it.id}.subscribe(topic${it.id}, function (message) {
+
+                    if (message.body) {
+
+                        var counts = jQuery.parseJSON(message.body);
+
+                        if (counts.comments)
+                            $("#commentsCount${it.id}").html(counts.comments);
+
+                        if (counts.likes)
+                            $("#likesCount${it.id}").html(counts.likes);
+                    }
+                });
+            });
+        });
+    </script>
+
 </g:each>

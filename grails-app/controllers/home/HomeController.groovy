@@ -34,9 +34,7 @@ class HomeController {
 
         }
 
-
         render view: "index", model: [blogs:blogService.findBlogs(), cities: City.list(params), cityCount:City.count, askForEmail:askForEmail, hasStory:BlogEntry.findByAuthor(springSecurityService.currentUser)?true:false]
-
 
     }
 }

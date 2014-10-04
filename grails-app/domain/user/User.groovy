@@ -1,6 +1,7 @@
 package user
 
 import account.Account
+import blog.BlogEntry
 
 class User {
 
@@ -17,7 +18,10 @@ class User {
 
 	static transients = ['springSecurityService']
 
-	static constraints = {
+    static hasMany = [blogs: BlogEntry, likes: BlogEntry]
+    static mappedBy = [blogs: "author", likes: "likes"]
+
+    static constraints = {
 		username blank: false, unique: true
 		password blank: false
         email nullable: true

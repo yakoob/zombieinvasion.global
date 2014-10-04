@@ -14,6 +14,9 @@ grails.project.target.level = 1.6
 grails.project.source.level = 1.6
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
+grails.tomcat.nio = true
+grails.tomcat.scan.enabled = true
+
 grails.server.port.http = 8085
 
 grails.project.fork = [

@@ -49,7 +49,7 @@
 
                 <h1 id="site-title">
                     <span>
-                        <a href="home" title="Theme Preview" rel="home">Zombie Invasion</a>
+                        <a href="home" title="ZombieInvasion.global" rel="home">Zombie Invasion</a>
                     </span>
                 </h1>
 

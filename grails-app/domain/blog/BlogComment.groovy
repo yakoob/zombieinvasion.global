@@ -1,14 +1,15 @@
 package blog
 
-import org.joda.time.DateTime
 import user.User
-
+import org.joda.time.DateTime
 
 class BlogComment {
 
     User user
     String comment
-    DateTime created = DateTime.now()
+    Date created = DateTime.now().toDate()
+
+    static belongsTo = [blogEntry: BlogEntry]
 
     static mapping = {
         comment type: "text"

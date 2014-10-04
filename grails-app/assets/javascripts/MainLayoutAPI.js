@@ -89,7 +89,7 @@ var MainLayoutAPI = function(){
             // $(".ajax").colorbox({rel:'group3', transition:"none", width:"50%", height:"50%"});
 
             $(".ajax").colorbox({
-                width:"50%", height:"50%"
+                width:"70%", height:"70%"
                 /*
                 ,
                 onOpen:function(){ console.log('onOpen: colorbox is about to open'); },

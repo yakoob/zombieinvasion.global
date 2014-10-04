@@ -13,22 +13,22 @@
 
 
 
-    <sec:ifLoggedIn>
+<sec:ifLoggedIn>
 
-        <sec:ifAllGranted roles="ROLE_TWITTER">
+    <sec:ifAllGranted roles="ROLE_TWITTER">
 
-            <g:if test="${hasStory?.toBoolean()==false}">
-                <div class="alert alert-danger" role="alert">
-                    <asset:image src="zombie.svg" width="40"/>
-                    <strong>... You have yet to tell your UnDead Story ... >>>  </strong>
-                    <span style="float: right"><a class='ajax' href="shout" title="Tell your UnDead story"><button type="button" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-pencil"></span> Tell Your UnDead Story</button></a></span>
-                </div>
-            </g:if>
+        <g:if test="${hasStory?.toBoolean()==false}">
+            <div class="alert alert-danger" role="alert">
+                <asset:image src="zombie.svg" width="40"/>
+                <strong>... You have yet to tell your UnDead Story ... >>>  </strong>
+                <span style="float: right"><a class='ajax' href="shout" title="Tell your UnDead story"><button type="button" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-pencil"></span> Tell Your UnDead Story</button></a></span>
+            </div>
+        </g:if>
 
 
-        </sec:ifAllGranted>
+    </sec:ifAllGranted>
 
-    </sec:ifLoggedIn>
+</sec:ifLoggedIn>
 
 
 
@@ -38,24 +38,20 @@
 
     <div class="jumbotron jumbotron2">
 
-        <div>
+        <div class="well" style="background:url(${assetPath(src: 'widget.jpg')}) right top no-repeat;">
 
-            <div class="well" style="background:url(${assetPath(src: 'widget.jpg')}) right top no-repeat;">
+            <div><a style="text-decoration: none" href="#" title="Permalink to ${raw(it.subject)}" rel="bookmark"><span id="blog-subject">${raw(it.subject)}</span></a></div>
 
-                <a style="text-decoration: none" href="#" title="Permalink to ${raw(it.subject)}" rel="bookmark"><span id="blog-subject">${raw(it.subject)}</span></a>
-
-                <p id="blog-title">${raw(it.title)}</p>
-
-                <span>by </span>
-                <span><a href="#" title="View all posts by ${it.author.username}">${it.author.username}</a></span>
-                <span> @ </span>
-                <span><g:formatDate format="MM/dd/yyyy hh:mm:ss a z" date="${it.created.toDate()}"/></span>
-
-            </div>
-
-            <p>${raw(it.body)}</p>
+            <span>by </span>
+            <span><a href="#" title="View all posts by ${it.author.username}">${it.author.username}</a></span>
+            <span> @ </span>
+            <span><g:formatDate format="MM/dd/yyyy hh:mm:ss a z" date="${it.created}"/></span>
 
         </div>
+
+        <p id="blog-title">${raw(it.title)}</p>
+        <p>${raw(it.body)}</p>
+
 
         <div class="well well-sm">
 
@@ -75,9 +71,9 @@
                             <li>
                                 <g:if test="${it.commentsEnabled.toBoolean()==false}"><a>Comments Off</a></g:if>
                                 <g:else>
-                                    <a class='ajax' href="shout" title="comment on: ${it.subject}">
+                                    <a class='ajax' href="comment/${it.id}" title="comment on: ${it.subject}">
                                         Comments
-                                        <span class="badge">${it.comments.size()}</span>
+                                        <span class="badge">${it.comments?.size()}</span>
                                     </a>
 
                                 </g:else>
@@ -85,7 +81,7 @@
 
                         </ul>
                     </td>
-                    <td class="tags" width="40%">
+                    <td class="tags" width="30%">
                         <ul class="nav nav-pills">
                             <g:render template="/blog/blogCategories" model="[categories:it.categories]"/>
                         </ul>

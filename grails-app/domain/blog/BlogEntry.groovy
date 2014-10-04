@@ -1,7 +1,6 @@
 package blog
 
 import user.User
-import org.jadira.usertype.dateandtime.joda.PersistentDateTime
 import org.joda.time.DateTime
 
 class BlogEntry {
@@ -10,7 +9,7 @@ class BlogEntry {
     String title
     String subject
     String body
-    DateTime created = DateTime.now()
+    Date created = DateTime.now().toDate()
     Boolean commentsEnabled = true
 
     static hasMany = [categories: BlogCategory, comments: BlogComment]
@@ -21,8 +20,8 @@ class BlogEntry {
     }
 
     static mapping = {
+        comments lazy: false
         body type: "text"
-        created type: PersistentDateTime
     }
 
 }

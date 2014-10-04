@@ -28,7 +28,7 @@
                 <g:each in="${cities}">
                 <li class="list-group-item">
                     <span class="badge"><g:formatNumber number="${it.population}" format="###,##0" /></span>
-                    ${it.city}, ${it.countryCode}
+                    <a class="ajax" href="shout">${it.city}, ${it.countryCode}</a>
                 </li>
                 </g:each>
 

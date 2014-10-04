@@ -77,7 +77,7 @@ a:hover {
 
 #header {
     padding: 0 0 0 0;
-    background: url(hand.png) 300px bottom no-repeat;
+    background: url(hand.png) 340px bottom no-repeat;
     min-height:1px;
 
 }
@@ -217,6 +217,11 @@ p {
     background:url(main_center.jpg) right top;
     padding-top:30px;
     background-color: #000000 !important;
+}
+
+
+div.well-sm {
+    background:url(blood_pool.png) right bottom no-repeat !important;
 }
 
 table.blogFooter td.tags {

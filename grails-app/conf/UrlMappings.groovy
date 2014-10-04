@@ -11,6 +11,7 @@ class UrlMappings {
         "/city"(controller: "city", action: "index")
         "/city/$id"(controller: "city", action: "index")
         "/blogs/$id"(controller: "blog", action: "show")
+        "/comment/$blogId"(controller: "blog" ,action: "comment")
         "/oauth/twitter/callback"(controller: "account", action: "oauthTwitter")
         "/"(controller: "home", action: "index")
         "500"(view:'/error')

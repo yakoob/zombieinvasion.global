@@ -3,7 +3,7 @@
 <div>
     <a style="text-decoration: none" href="#" rel="bookmark">
         <span id="blog-subject">
-            Comments for: ${blogEntry.subject}... ${blogEntry.title}
+            ( ${comments.size()} ) comments for: ${blogEntry.subject}... ${blogEntry.title}
         </span>
     </a>
 </div>

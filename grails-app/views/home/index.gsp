@@ -12,7 +12,10 @@
 
     <div>
         <div style="float: left; width: 70%">
-            <g:render template="/blog/blogs" model="[blogs:blogs, hasStory:hasStory]"/>
+            <div class="list" id="blog_content">
+                <g:render template="/blog/blogs" model="[contents:blogs, total:blogsCount, hasStory:hasStory]"/>
+            </div>
+            <div id="loadingBlogID" style="display: none;"><img src="${resource(dir:'images', file:'loading.png')}" alt=""/></div>
         </div>
 
         <div style="float: right; width: 25%">
@@ -20,39 +23,15 @@
             <asset:image src="blog_zombies.png" width="280"/>
 
 
-
-            <ul class="list-group">
-            <div class="list" id="city_content">
-                <g:render template="/city/filter" model="[total:cityCount, contents:cities]"/>
-            </div>
-            <div id="loadingDivId" style="display: none;"><img src="${resource(dir:'images', file:'loading.png')}" alt=""/></div>
-            </ul>
-
-<%---
-
-            <center>
-                <g:paginate class="nopaddingNav" controller="home" maxsteps="4" action="index" total="${cityCount}" />
-            </center>
-
             <ul class="list-group">
 
-                <g:each in="${cities}">
-                <li class="list-group-item">
-                    <span class="badge"><g:formatNumber number="${it.population}" format="###,##0" /></span>
-                    <a class="ajax" href="shout">${it.city}, ${it.countryCode}</a>
-                </li>
-                </g:each>
+                <div class="list" id="city_content">
+                    <g:render template="/city/filter" model="[total:cityCount, contents:cities]"/>
+                </div>
 
-                <center>
-                    <g:paginate class="nopaddingNav" controller="home" maxsteps="4" action="index" total="${cityCount}" />
-                </center>
+                <div id="loadingDivId" style="display: none;"><img src="${resource(dir:'images', file:'loading.png')}" alt=""/></div>
 
             </ul>
-            ---%>
-
-
-
-
 
 
         </div>

@@ -15,6 +15,11 @@ class BlogController {
         render view: "index", model: [blogs:blogService.findBlogs(), hasStory:BlogEntry.findByAuthor(springSecurityService.currentUser)?true:false]
     }
 
+    def list(){
+        println BlogEntry.list(params)
+        render view:"index", model:[total:BlogEntry.count, contents: BlogEntry.list(params)]
+    }
+
     def show() {
 
         Long id = params.id as Long

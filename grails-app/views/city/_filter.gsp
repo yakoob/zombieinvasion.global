@@ -2,14 +2,10 @@
 
 <g:each in="${contents}" var="it" status="index">
 
-
-            <li class="list-group-item">
-                <span class="badge"><g:formatNumber number="${it.population}" format="###,##0" /></span>
-                <a class="ajax" href="shout">${it.city}, ${it.countryCode}</a>
-            </li>
-
-
-
+    <li class="list-group-item">
+        <span class="badge"><g:formatNumber number="${it.population}" format="###,##0" /></span>
+        <a class="ajax" href="shout">${it.city}, ${it.countryCode}</a>
+    </li>
 
 </g:each>
 

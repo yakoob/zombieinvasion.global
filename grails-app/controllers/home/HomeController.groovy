@@ -22,19 +22,15 @@ class HomeController {
             params.offset = 0
 
         if(!params.max)
-            params.max = 30
-
-        params.sort = "population"
-        params.order = "desc"
+            params.max = 10
 
         if (springSecurityService.isLoggedIn()){
             User user = springSecurityService.isLoggedIn() ? springSecurityService.loadCurrentUser() : null
             if (!user.email)
                 askForEmail=true
-
         }
 
-        render view: "index", model: [blogs:blogService.findBlogs(), cities: City.list(params), cityCount:City.count, askForEmail:askForEmail, hasStory:BlogEntry.findByAuthor(springSecurityService.currentUser)?true:false]
+        render view: "index", model: [blogsCount:BlogEntry.count, blogs:BlogEntry.list(params), cities: City.list(params), cityCount:City.count, askForEmail:askForEmail, hasStory:BlogEntry.findByAuthor(springSecurityService.currentUser)?true:false]
 
     }
 }

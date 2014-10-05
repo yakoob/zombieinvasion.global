@@ -1,2 +1,13 @@
+<!DOCTYPE html>
 
-<g:render template="/blog/blogs" model="[blogs:blogs, hasStory:hasStory]"/>
+<html>
+
+<head>
+    <meta name='layout' content='none'/>
+</head>
+
+<body>
+<g:render template="blogs" model="[contents:contents, total: total]"/>
+</body>
+
+</html>

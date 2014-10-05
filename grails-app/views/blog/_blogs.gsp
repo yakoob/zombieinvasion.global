@@ -1,18 +1,4 @@
 
-<g:if test="${!blogs.size()}">
-<article class="is-post is-post-excerpt">
-    <header>
-        <h1>no records found matching your query</h1>
-    </header>
-    <div class="info">
-        <strong style="color: red">Whops!</strong>
-    </div>
-</article>
-
-</g:if>
-
-
-
 <sec:ifLoggedIn>
 
     <sec:ifAllGranted roles="ROLE_TWITTER">
@@ -31,10 +17,9 @@
 </sec:ifLoggedIn>
 
 
-<g:each in="${blogs}">
+<g:javascript plugin="remote-pagination" library="remoteNonStopPageScroll"/>
 
-
-
+<g:each in="${contents}" var="it" status="index">
 
 
     <div class="jumbotron jumbotron2">
@@ -63,29 +48,29 @@
 
                     <td>
                         <g:formRemote id="likeForm${it.id}" name="likeForm${it.id}" update="likeResult${it.id}" url='[uri: "/like/${it.id}"]'>
-                        <ul class="nav nav-pills">
+                            <ul class="nav nav-pills">
 
-                            <li>
+                                <li>
 
-                                <button style="border:0;background-color:transparent;color:#99090A;margin-top: 8px;">
-                                    <span class="glyphicon glyphicon-thumbs-up"></span> like
-                                    <span class="badge" id="likesCount${it.id}">${it?.likes?.size()}</span>
-                                </button>
+                                    <button style="border:0;background-color:transparent;color:#99090A;margin-top: 8px;">
+                                        <span class="glyphicon glyphicon-thumbs-up"></span> like
+                                        <span class="badge" id="likesCount${it.id}">${it?.likes?.size()}</span>
+                                    </button>
 
-                            </li>
+                                </li>
 
-                            <li>
-                                <g:if test="${it.commentsEnabled.toBoolean()==false}"><a>Comments Off</a></g:if>
-                                <g:else>
-                                    <a class='ajax' href="comment/${it.id}" title="comment on: ${it.subject}">
-                                        Comments
-                                        <span class="badge" id="commentsCount${it.id}">${it.comments?.size()}</span>
-                                    </a>
+                                <li>
+                                    <g:if test="${it.commentsEnabled.toBoolean()==false}"><a>Comments Off</a></g:if>
+                                    <g:else>
+                                        <a class='ajax' href="comment/${it.id}" title="comment on: ${it.subject}">
+                                            Comments
+                                            <span class="badge" id="commentsCount${it.id}">${it.comments?.size()}</span>
+                                        </a>
 
-                                </g:else>
-                            </li>
+                                    </g:else>
+                                </li>
 
-                        </ul>
+                            </ul>
                         </g:formRemote>
                     </td>
                     <td class="tags" width="30%">
@@ -134,4 +119,7 @@
         });
     </script>
 
+
 </g:each>
+
+<util:remoteNonStopPageScroll action="list" controller="blog"  total="${total}" update="blog_content" loadingHTML="loadingBlogID"/>

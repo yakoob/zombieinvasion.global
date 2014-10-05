@@ -3,11 +3,11 @@
 <html>
 
 <head>
-    <meta name='layout' content='singleColumn'/>
+    <meta name='layout' content='none'/>
 </head>
 
 <body>
-city
+<g:render template="filter" model="[total:total, contents:contents]"/>
 </body>
 
 </html>

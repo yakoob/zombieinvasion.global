@@ -1,10 +1,30 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
-<html>
-<head>
-    <title></title>
-</head>
 
-<body>
+
+<div>
+    <a style="text-decoration: none" href="#" rel="bookmark">
+        <span id="blog-subject">
+            Comments for: ${blogEntry.subject}... ${blogEntry.title}
+        </span>
+    </a>
+</div>
+
+<div style="height: 320px; overflow: auto">
+<g:each in="${comments.sort{ -it.id}}" var="comment">
+
+    <div class="jumbotron2">
+
+        <div class="well" style="background:url(${assetPath(src: 'widget.jpg')}) right top no-repeat;">
+
+            <h4>by ${comment.user.username} @ <g:formatDate format="MM/dd/yyyy hh:mm:ss a z" date="${comment.created}"/></h4>
+            <p><strong>${raw(comment.comment.replace('\n', '<br>\n'))}</strong></p>
+
+        </div>
+
+    </div>
+
+
+</g:each>
+</div>
 
 <sec:ifLoggedIn>
 
@@ -14,7 +34,7 @@
 
             <g:textArea class="form-control" name="comment" value="" rows="10"/>
 
-            <button type="button" class="btn btn-lg btn-danger" onclick="$('#saveCommentForm').submit();">
+            <button type="button" class="btn btn-lg btn-danger" onclick="$('#saveCommentForm').submit();" style="margin: 5px">
                 <span class="glyphicon glyphicon-floppy-save"></span> Submit Comment
             </button>
 
@@ -27,34 +47,14 @@
 
 </sec:ifLoggedIn>
 
-<div class="panel panel-danger">
-    <!-- Default panel contents -->
-    <div class="panel-heading"><strong>Comments for: ${blogEntry.subject}... ${blogEntry.title}</strong></div>
+<sec:ifNotLoggedIn>
+    <div class="jumbotron jumbotron2">
+        <h1>Post a Comment:</h1>
+        <g:render template="/login/alertLoginRequired"></g:render>
+    </div>
 
-    <!-- Table -->
-    <table class="table" border="0" cellpadding="4" cellspacing="0">
-        <g:each in="${comments.sort{it.created}}" var="comment">
-        <tr>
-            <td>
-                <div class="well alert alert-danger">
-                    <strong>
-                    <span>by </span>
-                    <span><a href="#" title="View all posts by ${comment.user.username}">${comment.user.username}</a></span>
-                    <span> @ </span>
-                    <span><g:formatDate format="MM/dd/yyyy hh:mm:ss a z" date="${comment.created}"/></span>
-                    </strong>
-                </div>
+</sec:ifNotLoggedIn>
 
 
-                <p>${raw(comment.comment.replace('\n', '<br>\n'))}</p>
-            </td>
 
-        </tr>
 
-        </g:each>
-
-    </table>
-</div>
-
-</body>
-</html>

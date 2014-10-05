@@ -56,18 +56,18 @@
 
         <div class="well well-sm">
 
-            <div id = "foobar${it.id}"></div>
+            <div id = "likeResult${it.id}"></div>
 
             <table width="100%" border="0" class="blogFooter">
                 <tr>
 
                     <td>
-                        <g:formRemote id="likeForm${it.id}" name="likeForm${it.id}" update="foobar${it.id}" url='[uri: "/like/${it.id}"]'>
+                        <g:formRemote id="likeForm${it.id}" name="likeForm${it.id}" update="likeResult${it.id}" url='[uri: "/like/${it.id}"]'>
                         <ul class="nav nav-pills">
 
                             <li>
 
-                                <button style="border:0;background-color:transparent;color:#99090A;margin-top: 9px;">
+                                <button style="border:0;background-color:transparent;color:#99090A;margin-top: 8px;">
                                     <span class="glyphicon glyphicon-thumbs-up"></span> like
                                     <span class="badge" id="likesCount${it.id}">${it?.likes?.size()}</span>
                                 </button>
@@ -113,6 +113,7 @@
             var client${it.id} = Stomp.over(socket${it.id});
 
             var topic${it.id} = '/topic/blog/${it.id}';
+
 
             client${it.id}.connect({}, function () {
 

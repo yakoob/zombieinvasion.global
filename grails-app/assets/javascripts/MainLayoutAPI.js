@@ -89,7 +89,8 @@ var MainLayoutAPI = function(){
             // $(".ajax").colorbox({rel:'group3', transition:"none", width:"50%", height:"50%"});
 
             $(".ajax").colorbox({
-                width:"70%", height:"70%"
+                width:"70%",
+                height:"70%"
                 /*
                 ,
                 onOpen:function(){ console.log('onOpen: colorbox is about to open'); },
@@ -103,6 +104,15 @@ var MainLayoutAPI = function(){
 
         });
     }
+
+    jQuery(document).ready(function(){
+        $(document).bind('cbox_open', function() {
+            $('html').css({ overflow: 'hidden' });
+        }).bind('cbox_closed', function() {
+            $('html').css({ overflow: '' });
+        });
+    });
+
 
     function menu(){
         jQuery(document).ready(function() {

@@ -1,10 +1,8 @@
 package blog
 
-import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
 import org.springframework.http.HttpStatus
 import user.User
-
 
 @Secured("permitAll")
 class BlogController {
@@ -92,7 +90,7 @@ class BlogController {
         User authenticatedUser = springSecurityService.currentUser
 
         if (!authenticatedUser){
-            render status: HttpStatus.OK, text: "<div class=\"alert alert-danger\" role=\"alert\">${HttpStatus.UNAUTHORIZED.name()}: please <a href='account'><button class=\"btn btn-lg btn-danger\">login</button></a></div>"
+            render status: HttpStatus.OK, template: "/login/alertLoginRequired"
             return
         }
 
@@ -107,7 +105,7 @@ class BlogController {
 
             if (blog.likes.find{it.id == authenticatedUser.id}){
 
-                render status: HttpStatus.OK, text: "<div class=\"alert alert-danger\" role=\"alert\">you already liked this post</div>"
+                render status: HttpStatus.OK, template: "alertAlreadyLiked"
                 return
             }
 

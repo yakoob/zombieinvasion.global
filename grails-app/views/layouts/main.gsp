@@ -55,6 +55,11 @@
 
                 <div id="site-description">Chipping in one Bite at a time...</div>
 
+                <div style="float: right; padding: 0 0 0 0; margin: 0 0 0 0;">
+                    <a href="https://twitter.com/UnDead_zZz" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @UnDead_zZz</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                </div>
+
                 <g:render template="/layouts/navigation"/>
 
             </div><!-- #header -->
@@ -90,6 +95,6 @@
     ga('create', 'UA-55350019-1', 'auto');
     ga('send', 'pageview');
 </script>
-
+<br><br><br><br><br><br><br><br><br>
 </body>
 </html>

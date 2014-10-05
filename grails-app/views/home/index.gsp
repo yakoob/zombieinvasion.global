@@ -19,6 +19,17 @@
 
             <asset:image src="blog_zombies.png" width="280"/>
 
+
+
+            <ul class="list-group">
+            <div class="list" id="city_content">
+                <g:render template="/city/filter" model="[total:cityCount, contents:cities]"/>
+            </div>
+            <div id="loadingDivId" style="display: none;"><img src="${resource(dir:'images', file:'loading.png')}" alt=""/></div>
+            </ul>
+
+<%---
+
             <center>
                 <g:paginate class="nopaddingNav" controller="home" maxsteps="4" action="index" total="${cityCount}" />
             </center>
@@ -37,6 +48,7 @@
                 </center>
 
             </ul>
+            ---%>
 
 
 

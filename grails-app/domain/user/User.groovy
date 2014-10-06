@@ -2,6 +2,8 @@ package user
 
 import account.Account
 import blog.BlogEntry
+import ip.IpAddress
+import region.City
 
 class User {
 
@@ -38,7 +40,7 @@ class User {
 
 	def beforeInsert() {
         this.account = new Account().save()
-		encodePassword()
+        encodePassword()
 	}
 
 	def beforeUpdate() {

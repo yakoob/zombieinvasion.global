@@ -49,7 +49,7 @@
 
                 <h1 id="site-title">
                     <span>
-                        <a href="home" title="ZombieInvasion.global" rel="home">Zombie Invasion</a>
+                        <a href="${createLink(uri: '/home?ni=home')}" title="ZombieInvasion.global" rel="${createLink(uri: '/home?ni=home')}">Zombie Invasion</a>
                     </span>
                 </h1>
 

@@ -1,8 +1,25 @@
 package account
 
+import user.User
+
 class AccountController {
 
-    def index() {}
+    def springSecurityService
+    def ipAddressService
+
+    def index() {
+
+        if (springSecurityService.loggedIn) {
+
+            def user = springSecurityService.loadCurrentUser()
+
+            if (user){
+                ipAddressService.get()
+            }
+
+        }
+
+    }
 
     def login(){
         render (view: "/account/login")

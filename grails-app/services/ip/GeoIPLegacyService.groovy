@@ -2,12 +2,14 @@ package ip
 
 import com.maxmind.geoip.Location
 import com.maxmind.geoip.LookupService
+import groovy.util.logging.Log4j
 
 import javax.annotation.PostConstruct
 import javax.annotation.PreDestroy
 
 import static com.maxmind.geoip.LookupService.GEOIP_MEMORY_CACHE
 
+@Log4j
 class GeoIPLegacyService {
 
     def timeZoneService
@@ -35,13 +37,15 @@ class GeoIPLegacyService {
             if(!location)
                 return null
 
-            String timeZone =  timeZoneService.getTimeZoneByCountryAndRegion(location?.countryCode, location.region)
+            // String timeZone =  timeZoneService.getTimeZoneByCountryAndRegion(location?.countryCode, location.region)
             GeoIPLegacyInfo geoIPLegacyInfo = new GeoIPLegacyInfo(ip, location.countryCode, location.region, location.city,
-                    ispLookupService.getOrg(ip), orgLookupService.getOrg(ip), location.latitude, location.longitude, timeZone
+                    ispLookupService.getOrg(ip), orgLookupService.getOrg(ip), location.latitude, location.longitude
             )
+            log.info(geoIPLegacyInfo.regionCode)
+
             return geoIPLegacyInfo
         } catch (e) {
-            log.warn "Could not get info from Geo IP Legacy | Exception: " + e
+            log.error "Could not get info from Geo IP Legacy | Exception: " + e
             return null
         }
     }

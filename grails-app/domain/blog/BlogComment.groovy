@@ -12,6 +12,8 @@ class BlogComment {
     static belongsTo = [blogEntry: BlogEntry]
 
     static mapping = {
+        dynamicUpdate true
+        version false
         comment type: "text"
     }
 

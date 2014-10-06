@@ -126,7 +126,9 @@ log4j.main = {
             'command',
             'event',
             'message',
-            'image'
+            'image',
+            'ip',
+            'region'
 
     info    'akka',
             'audio',
@@ -135,7 +137,9 @@ log4j.main = {
             'command',
             'event',
             'message',
-            'image'
+            'image',
+            'ip',
+            'region'
 
     debug   'akka',
             'audio',
@@ -144,7 +148,10 @@ log4j.main = {
             'command',
             'event',
             'message',
-            'image'
+            'image',
+            'ip',
+            'region'
+
 }
 
 

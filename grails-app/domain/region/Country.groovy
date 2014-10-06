@@ -10,6 +10,11 @@ class Country {
     Integer fraudRiskLevel
     byte[] flag
 
+    def displayFlag() {
+        String encoded = flag.encodeBase64().toString()
+        return """<img src="data:image/png;base64,${encoded}" border="0"/>"""
+    }
+
     static mapping = {
         flag sqlType: "longblob"
     }

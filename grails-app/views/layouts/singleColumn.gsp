@@ -54,7 +54,7 @@
 
                 <h1 id="site-title">
                     <span>
-                        <a href="/" title="Theme Preview" rel="home">Zombie Invasion</a>
+                        <a href="${createLink(uri: '/home?ni=home')}" title="ZombieInvasion.global" rel="home">Zombie Invasion</a>
                     </span>
                 </h1>
 

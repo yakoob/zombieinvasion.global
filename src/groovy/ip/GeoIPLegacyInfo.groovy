@@ -7,8 +7,8 @@ import groovy.transform.TupleConstructor
 @TupleConstructor
 class GeoIPLegacyInfo {
     String ipAddress
-    String countryCodeIso
-    String countryRegionCode
+    String countryCode
+    String regionCode
     String city
     String isp
     String organization
@@ -18,12 +18,13 @@ class GeoIPLegacyInfo {
 
     static constraints  = {
         ipAddress nullable: true
-        countryCodeIso nullable: true
-        countryRegionCode nullable: true
+        countryCode nullable: true
+        regionCode nullable: true
         city nullable: true
         organization nullable: true
         latitude nullable: true
         longitude nullable: true
         timeZone nullable: true
+        isp nullable: true
     }
 }

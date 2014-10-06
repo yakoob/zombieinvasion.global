@@ -22,15 +22,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home">ZombieInvasion.global</a>
+            <a class="navbar-brand" href="${createLink(uri: '/home?ni=home')}">ZombieInvasion.global</a>
         </div>
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
 
-                <li class="${ ni == "home" ? 'active':''}"><a href="home?ni=home">Home</a></li>
-                <li class="${ ni == "map" ? 'active':''}"><a href="map?ni=map">Invasion Map</a></li>
-                <li class="${ ni == "account" ? 'active':''}"><a href="account?ni=account">Account</a></li>
+                <li class="${ ni == "home" ? 'active':''}"><a href="${createLink(uri: '/home?ni=home')}">Home</a></li>
+                <li class="${ ni == "map" ? 'active':''}"><a href="${createLink(uri: '/map?ni=map')}">Invasion Map</a></li>
+                <li class="${ ni == "account" ? 'active':''}"><a href="${createLink(uri: '/account?ni=account')}">Account</a></li>
 
                 <%---
                 <li><a href="#about">About</a></li>

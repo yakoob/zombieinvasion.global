@@ -3,7 +3,7 @@
 <g:each in="${contents}" var="it" status="index">
 
     <li class="list-group-item">
-        <span class="badge"><g:formatNumber number="${it.population}" format="###,##0" /></span>
+        <span class="badge"><g:formatNumber number="${it.populationInfected}" format="###,##0" /></span>
         <a class="ajax" href="shout">
             ${raw(it.country.displayFlag())}
             ${it.city}, ${it.regionCode}

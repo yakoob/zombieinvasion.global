@@ -24,7 +24,7 @@ class UndeadService {
 
         UndeadSighting undeadSighting = new UndeadSighting(city: city, longitude: ipAddress.longitude, latitude: ipAddress.latitude, user: twitterUser)
         city.addToUndeadSightings(undeadSighting)
-        
+        city.populationInfected = city.populationInfected + 1
 
     }
 

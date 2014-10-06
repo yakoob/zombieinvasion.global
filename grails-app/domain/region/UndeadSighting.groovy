@@ -1,5 +1,6 @@
 package region
 
+import org.joda.time.DateTime
 import user.TwitterUser
 
 class UndeadSighting {
@@ -8,5 +9,6 @@ class UndeadSighting {
     String longitude
     TwitterUser user
     City city
+    Date created = DateTime.now().toDate()
 
 }

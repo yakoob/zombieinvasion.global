@@ -10,5 +10,6 @@ class UndeadSighting {
     TwitterUser user
     City city
     Date created = DateTime.now().toDate()
+    Date lastUpdated = DateTime.now().toDate()
 
 }

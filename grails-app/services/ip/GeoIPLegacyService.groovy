@@ -34,20 +34,48 @@ class GeoIPLegacyService {
         try {
             Location location = locationLookupService.getLocation(ip)
 
-            if(!location)
-                return null
+            location = locationDefaults(location)
 
             // String timeZone =  timeZoneService.getTimeZoneByCountryAndRegion(location?.countryCode, location.region)
-            GeoIPLegacyInfo geoIPLegacyInfo = new GeoIPLegacyInfo(ip, location.countryCode, location.region, location.city,
-                    ispLookupService.getOrg(ip), orgLookupService.getOrg(ip), location.latitude, location.longitude
-            )
+            GeoIPLegacyInfo geoIPLegacyInfo = new GeoIPLegacyInfo(ip, location.countryCode, location.region, location.city, ispLookupService.getOrg(ip), orgLookupService.getOrg(ip), location.latitude, location.longitude)
+
             log.info(geoIPLegacyInfo.regionCode)
 
             return geoIPLegacyInfo
+
         } catch (e) {
+
             log.error "Could not get info from Geo IP Legacy | Exception: " + e
             return null
+
         }
+    }
+
+    def locationDefaults(Location location){
+
+        if (!location)
+            location = new Location()
+
+        if (!location.area_code)
+            location.area_code = 0
+
+        if (!location.city)
+            location.city = "Unknown"
+
+        if (!location.countryCode)
+            location.countryCode = "A1"
+
+        if (!location.latitude)
+            location.latitude = 0.0
+
+        if (!location.longitude)
+            location.longitude = 0.0
+
+        if (!location.region)
+            location.region = "ZiG"
+
+        return location
+
     }
 
     @PreDestroy

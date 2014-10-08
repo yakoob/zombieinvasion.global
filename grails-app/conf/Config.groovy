@@ -128,7 +128,8 @@ log4j.main = {
             'message',
             'image',
             'ip',
-            'region'
+            'region',
+            'account'
 
     info    'akka',
             'audio',
@@ -139,7 +140,8 @@ log4j.main = {
             'message',
             'image',
             'ip',
-            'region'
+            'region',
+            'account'
 
     debug   'akka',
             'audio',
@@ -150,7 +152,9 @@ log4j.main = {
             'message',
             'image',
             'ip',
-            'region'
+            'region',
+            'account'
+
 
 }
 

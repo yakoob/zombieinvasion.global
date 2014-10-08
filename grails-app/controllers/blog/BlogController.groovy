@@ -29,6 +29,65 @@ class BlogController {
             render status: HttpStatus.NOT_FOUND
     }
 
+    def blogForm(){
+
+        if (params.id) {
+
+            render view: "displaySave", model: [blog:BlogEntry.get(params.id)]
+
+        } else {
+
+            render view: "displaySave"
+
+        }
+
+    }
+
+    def saveBlog(){
+
+        def user = springSecurityService.currentUser
+
+        if (user) {
+
+            try {
+
+                def blog
+
+                if (params.id){
+
+                    blog = BlogEntry.get(params.id)
+
+                    if (!blog) {
+                        render status: HttpStatus.FAILED_DEPENDENCY
+                        return
+                    }
+
+                } else {
+                    blog = new BlogEntry(params)
+                }
+
+
+                blog.author = user
+
+                blog.save()
+
+                render status: HttpStatus.OK
+                return
+
+            } catch (e) {
+
+                log.error(e)
+                render status: HttpStatus.INTERNAL_SERVER_ERROR
+                return
+
+            }
+
+
+        } else {
+            render status: HttpStatus.UNAUTHORIZED
+        }
+    }
+
     def comment() {
 
 
@@ -71,7 +130,6 @@ class BlogController {
                 blog.addToComments(comment)
                 blog.save(flush: true)
 
-                updateStats(blog.id)
 
                 render status: HttpStatus.OK
                 return
@@ -114,15 +172,10 @@ class BlogController {
                 return
             }
 
-            /*
-            if (!blog.likes.find{it.id == authenticatedUser.id }) {
-
-            }
-            */
             authenticatedUser.addToLikes(blog)
             authenticatedUser.save(flush: true)
 
-            updateStats(blog.id)
+            notifyJmsTopic(blog.id)
 
             render status: HttpStatus.OK
             return
@@ -155,7 +208,7 @@ class BlogController {
         render view: "index", model: [blogs:blogs]
     }
 
-    def updateStats(id){
+    def notifyJmsTopic(id){
 
         def blog = BlogEntry.get(id)
 

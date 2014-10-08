@@ -16,6 +16,12 @@ class City {
         return null
     }
 
+    def getRegion(){
+        if (this.regionCode)
+            return Region.findByRegionCode("${this.countryCode}-${this.regionCode}")
+        return null
+    }
+
     static mapping = {
         dynamicUpdate true
         version false

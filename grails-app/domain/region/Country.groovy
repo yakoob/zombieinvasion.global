@@ -12,7 +12,7 @@ class Country {
 
     def displayFlag() {
         String encoded = flag.encodeBase64().toString()
-        return """<img src="data:image/png;base64,${encoded}" border="0"/>"""
+        return """<img title="$countryName" src="data:image/png;base64,${encoded}" border="0" width="20" heigth="12"/>"""
     }
 
     static mapping = {

@@ -1,3 +1,5 @@
+<%---TODO http://jawj.github.io/OverlappingMarkerSpiderfier/demo.html ---%>
+
 <html>
 <head>
     <title>Invasion Map - Track the global outbreak in real-time.</title>
@@ -47,8 +49,7 @@
                 mapTypeId: MY_MAPTYPE_ID
             };
 
-            map = new google.maps.Map(document.getElementById('map-canvas'),
-                    mapOptions);
+            map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
             var styledMapOptions = {
                 name: 'Custom Style'
@@ -58,39 +59,56 @@
 
             map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
 
-            // To add the marker to the map, call setMap();
-           //  marker.setMap(map);
-
-
+            setTimeout();
 
         }
 
-        google.maps.event.addDomListener(window, 'load', initialize);
 
 
+        function addMarker(id, latitude, longitude){
 
-        function addMarker(latitude, longitude){
             var image = "${assetPath(src: 'zombie_marker.png')}";
 
             var myLatLng = new google.maps.LatLng(latitude, longitude);
+
             var marker = new google.maps.Marker({
                 position: myLatLng,
                 map: map,
                 icon: image,
-                url: "/shout"
+                id:id
+
             });
 
             google.maps.event.addListener(marker, 'click', function() {
-                window.location.href = this.url;
+                var zombieLink = "${createLink(uri: '/zombie/')}" + marker.id;
+                $.colorbox({href:zombieLink,innerWidth:"80%",innerHeight:"80%"})
             });
 
         }
 
+        setTimeout(function() {
+
+            <g:each in="${undeadSightings}" var="sighting">
+            addMarker(${sighting.id}, ${sighting.latitude}, ${sighting.longitude});
+            </g:each>
+
+        }, 3000);
+
+
+
+
+
+        google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
 </head>
 <body>
+<div id="map-canvas" style="width:100%; height:700px">
+</div>
+</body>
+</html>
 
+<%---
 
 <ul class="nav nav-pills">
     <li>
@@ -115,8 +133,4 @@
     </li>
 
 </ul>
-
-<div id="map-canvas" style="width:100%; height:700px">
-</div>
-</body>
-</html>
+---%>

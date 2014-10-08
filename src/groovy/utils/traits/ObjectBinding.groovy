@@ -5,7 +5,8 @@ trait ObjectBinding {
     def copyObject(source, target) {
         source.properties.each { key, value ->
             if (target.hasProperty(key) && !(key in ['class', 'metaClass', '']))
-                target[key] = value
+                if (value)
+                    target[key] = value
         }
         return target
     }

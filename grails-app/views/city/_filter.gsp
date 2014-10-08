@@ -4,10 +4,8 @@
 
     <li class="list-group-item">
         <span class="badge"><g:formatNumber number="${it.populationInfected}" format="###,##0" /></span>
-        <a class="ajax" href="shout">
-            ${raw(it.country.displayFlag())}
-            ${it.city}, ${it.regionCode}
-        </a>
+        ${raw(it.country.displayFlag())}
+        <a class="ajax" href="shout">${it.city} <g:if test="${it.region?.description}">, ${it.region?.description}</g:if></a>
     </li>
 
 </g:each>

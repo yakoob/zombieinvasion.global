@@ -41,10 +41,4 @@ class TwitterUser  {
         cities nullable: true
     }
 
-    def afterInsert(){
-        def undeadService = Holders.applicationContext.getBean("undeadService")
-        undeadService.track(this)
-    }
-
-
 }

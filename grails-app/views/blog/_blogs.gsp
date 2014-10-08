@@ -7,7 +7,7 @@
             <div class="alert alert-danger" role="alert">
                 <asset:image src="zombie.svg" width="40"/>
                 <strong>... You have yet to tell your UnDead Story ... >>>  </strong>
-                <span style="float: right"><a class='ajax' href="shout" title="Tell your UnDead story"><button type="button" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-pencil"></span> Tell Your UnDead Story</button></a></span>
+                <span style="float: right"><a class='ajax' href="${createLink(uri: '/blog/form')}" title="Tell your UnDead story"><button type="button" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-pencil"></span> Tell Your UnDead Story</button></a></span>
             </div>
         </g:if>
 
@@ -36,8 +36,8 @@
         </div>
 
         <p id="blog-title">${raw(it.title)}</p>
-        <p>${raw(it.body)}</p>
 
+        <p>${raw(it.body.replace('\n', '<br>\n'))}</p>
 
         <div class="well well-sm">
 

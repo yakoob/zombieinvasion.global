@@ -79,6 +79,7 @@ grails.project.dependency.resolution = {
         compile "com.maxmind.geoip:geoip-api:1.2.14"
         compile "org.twitter4j:twitter4j-core:[4.0,)"
         compile "com.google.guava:guava:18.0"
+        compile "com.paypal.sdk:rest-api-sdk:0.9.1"
     }
 
     plugins {

@@ -31,7 +31,7 @@
                 <li class="${ ni == "home" ? 'active':''}"><a href="${createLink(uri: '/home?ni=home')}">Home</a></li>
                 <li class="${ ni == "map" ? 'active':''}"><a href="${createLink(uri: '/map?ni=map')}">Invasion Map</a></li>
                 <li class="${ ni == "account" ? 'active':''}"><a href="${createLink(uri: '/account?ni=account')}">Account</a></li>
-
+                <li class="${ ni == "payment" ? 'active':''}"><a class="ajax" href="${createLink(uri: '/payment')}" title="Please help us keep our servers running...">Donate</a></li>
                 <%---
                 <li><a href="#about">About</a></li>
                 <li class="${ ni == "contact" ? 'active':''}"><a href="contactUs?ni=contact">Contact</a></li>

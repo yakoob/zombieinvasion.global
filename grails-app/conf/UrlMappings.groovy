@@ -16,10 +16,16 @@ class UrlMappings {
         "/city/$id"(controller: "city", action: "index")
 
 
+        "/blogs"(controller: "blog", action: "index")
+        "/blogs/latest"(controller: "blog", action: "latest")
+        "/blogs/$id"(controller: "blog", action: "show")
         "/blog/form"(controller: "blog", action: "blogForm")
 
+        "/payment"(controller: "payment", action: "index")
 
-        "/blogs/$id"(controller: "blog", action: "show")
+        "/payment/paypal/ipn"(controller: "payment") {
+            action = [POST: "ipnListener"]
+        }
 
         "/comment/$blogId"(controller: "blog", action: "comment")
 

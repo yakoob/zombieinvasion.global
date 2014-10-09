@@ -17,7 +17,6 @@ class BlogEntry {
     static belongsTo = [User]
 
     static constraints = {
-        subject nullable: true
         categories nullable: true
     }
 
@@ -25,6 +24,11 @@ class BlogEntry {
         comments lazy: false
         categories lazy: false
         body type: "text"
+        sort id: "desc" // or "asc"
+    }
+
+    def beforeInsert(){
+        this.addToCategories(new BlogCategory(tag: "UnDead Story", blogEntry: this))
     }
 
 }

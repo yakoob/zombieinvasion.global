@@ -4,7 +4,7 @@ import actor.BaseActor
 import akka.event.Logging
 import akka.event.LoggingAdapter
 import grails.util.Holders
-import message.Shout
+
 
 class AudioActor extends BaseActor {
 
@@ -21,6 +21,7 @@ class AudioActor extends BaseActor {
 
         log.info(context.self().toString())
 
+        /*
         if (message instanceof Shout){
 
             log.info("!!!!! AUDIO ACTOR $message.channelUuid")
@@ -29,6 +30,7 @@ class AudioActor extends BaseActor {
             freeSwitchActorService.actorRef.tell(message, akkaService.actorNoSender())
 
         }
+        */
 
     }
 

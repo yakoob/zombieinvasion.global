@@ -76,6 +76,27 @@ var MainLayoutAPI = function(){
 
     }
 
+    function loadBlogs(a, b){
+
+        setPageContentId(a);
+        setPageContentUri(b);
+
+        var uri = pageContentUri.replace("#", "/");
+
+        $.ajax({
+            url: uri,
+            type: "get",
+            dataType: "html",
+            success: function (data) {
+                // clear current body content
+                $('#blog_content').html('');
+                // add rest response data to body
+                $(data).appendTo('#blog_content');
+            }
+        });
+
+    }
+
     function setPageContentId(id){
         pageContentId = id;
     }
@@ -89,8 +110,8 @@ var MainLayoutAPI = function(){
             // $(".ajax").colorbox({rel:'group3', transition:"none", width:"50%", height:"50%"});
 
             $(".ajax").colorbox({
-                width:"70%",
-                height:"70%"
+                width:"90%",
+                height:"90%"
                 /*
                 ,
                 onOpen:function(){ console.log('onOpen: colorbox is about to open'); },
@@ -131,7 +152,8 @@ var MainLayoutAPI = function(){
         setPageContentUri:setPageContentUri,
         loadPage:loadPage,
         searchListener:searchListener,
-        webSocketListener:webSocketListener
+        webSocketListener:webSocketListener,
+        loadBlogs:loadBlogs
     }
 
 

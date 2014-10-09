@@ -8,7 +8,7 @@
     </a>
 </div>
 
-<div style="height: 70%; overflow: auto">
+<div style="height: 64%; overflow: auto">
 <g:each in="${comments.sort{ -it.id}}" var="comment">
 
     <div class="jumbotron2">
@@ -25,7 +25,7 @@
 
 </g:each>
 </div>
-<div style="height: 25%; overflow: auto" >
+<div style="height: 30%; overflow: auto" >
 <sec:ifLoggedIn>
 
     <sec:ifAllGranted roles="ROLE_TWITTER">

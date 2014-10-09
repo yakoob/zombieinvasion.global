@@ -30,7 +30,11 @@ class HomeController {
                 askForEmail=true
         }
 
-        render view: "index", model: [blogsCount:BlogEntry.count, blogs:BlogEntry.list(params), cities: City.list(params), cityCount:City.count, askForEmail:askForEmail, hasStory:BlogEntry.findByAuthor(springSecurityService.currentUser)?true:false]
+
+        def cityParams = params.clone()
+        cityParams.max = 100
+
+        render view: "index", model: [blogsCount:BlogEntry.count, blogs:BlogEntry.list(params), cities: City.list(cityParams), cityCount:City.count, askForEmail:askForEmail, hasStory:BlogEntry.findByAuthor(springSecurityService.currentUser)?true:false]
 
     }
 }

@@ -1,9 +1,8 @@
 package event
 
-import utils.traits.Channel
 
 
-class FreeSwitchEvent implements Serializable, Channel {
+class FreeSwitchEvent implements Serializable {
 
     Boolean inbound = false
     Boolean outbound = false

@@ -2,7 +2,7 @@
 
     <sec:ifAllGranted roles="ROLE_TWITTER">
 
-        <g:formRemote id="saveBlogForm" name="saveBlogForm" onComplete="jQuery('.jquery').colorbox.close();" url="[controller: 'blog', action:'saveBlog']">
+        <g:formRemote id="saveBlogForm" name="saveBlogForm" onSuccess="window.location.href='${createLink(uri: "/blogs/latest")}'; " onComplete="jQuery('.jquery').colorbox.close();" url="[controller: 'blog', action:'saveBlog']">
 
 
             <div class="input-group input-group-lg">
@@ -21,7 +21,7 @@
 
             <div class="input-group input-group-lg">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-                <g:textArea name="body" id="body" value="" rows="20" cols="135" placeholder="" />
+                <g:textArea name="body" id="body" value="" rows="15" placeholder="" style="width: 100%" />
 
             </div>
 

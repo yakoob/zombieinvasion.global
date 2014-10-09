@@ -1,9 +1,8 @@
 package message
 
 import groovy.util.logging.Log4j
-import utils.traits.Channel
 
 @Log4j
-class Message implements Serializable, Channel {
+class Message implements Serializable{
     def delegate
 }

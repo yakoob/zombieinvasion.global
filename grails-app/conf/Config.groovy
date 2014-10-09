@@ -89,14 +89,13 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-
     }
     test {
 
     }
     production {
         grails.logging.jul.usebridge = false
-        grails.serverURL = "http://www.zombieinvasion.global"
+        grails.serverURL = "http://zombieinvasion.global"
     }
 }
 
@@ -129,7 +128,8 @@ log4j.main = {
             'image',
             'ip',
             'region',
-            'account'
+            'account',
+            'payment'
 
     info    'akka',
             'audio',
@@ -141,7 +141,8 @@ log4j.main = {
             'image',
             'ip',
             'region',
-            'account'
+            'account',
+            'payment'
 
     debug   'akka',
             'audio',
@@ -153,7 +154,8 @@ log4j.main = {
             'image',
             'ip',
             'region',
-            'account'
+            'account',
+            'payment'
 
 
 }

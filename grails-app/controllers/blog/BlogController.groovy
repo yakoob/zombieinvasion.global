@@ -12,12 +12,25 @@ class BlogController {
     def brokerMessagingTemplate
 
     def index() {
-        render view: "index", model: [blogs:blogService.findBlogs(), hasStory:BlogEntry.findByAuthor(springSecurityService.currentUser)?true:false]
+        params.order = "desc"
+        params.sort = "id"
+        render view:"index", model:[total:BlogEntry.count, contents: BlogEntry.list(params)]
     }
 
     def list(){
-        println BlogEntry.list(params)
+        params.order = "desc"
+        params.sort = "id"
         render view:"index", model:[total:BlogEntry.count, contents: BlogEntry.list(params)]
+    }
+
+    def latest(){
+        def latest
+        if (springSecurityService.loggedIn)
+            latest = BlogEntry.findAllByAuthor(springSecurityService.currentUser).id.first()
+        else
+            latest = BlogEntry.last()
+
+        redirect(uri: "/blogs/${latest}")
     }
 
     def show() {
@@ -31,15 +44,31 @@ class BlogController {
 
     def blogForm(){
 
-        if (params.id) {
+        def user = springSecurityService.currentUser
 
-            render view: "displaySave", model: [blog:BlogEntry.get(params.id)]
+        if (user) {
 
+            def userBlogCount = BlogEntry.findAllByAuthor(user).id.size()
+
+            if (userBlogCount>1){
+                redirect(uri: "/payment")
+                return
+            }
+
+
+            if (params.id) {
+
+                render view: "displaySave", model: [blog:BlogEntry.get(params.id)]
+
+            } else {
+
+                render view: "displaySave"
+
+            }
         } else {
-
-            render view: "displaySave"
-
+            render status: HttpStatus.UNAUTHORIZED, text: HttpStatus.UNAUTHORIZED.name()
         }
+
 
     }
 
@@ -72,6 +101,9 @@ class BlogController {
                 blog.save()
 
                 render status: HttpStatus.OK
+
+                notifyJmsBlogsTopic(blog.id)
+
                 return
 
             } catch (e) {
@@ -129,7 +161,7 @@ class BlogController {
 
                 blog.addToComments(comment)
                 blog.save(flush: true)
-
+                notifyJmsTopic(blog.id)
 
                 render status: HttpStatus.OK
                 return
@@ -207,6 +239,21 @@ class BlogController {
 
         render view: "index", model: [blogs:blogs]
     }
+
+
+    def notifyJmsBlogsTopic(id){
+
+        def blog = BlogEntry.get(id)
+
+        String topic = "/topic/blogs"
+
+        def html = render template: "/blog/blog", model:[blog:blog]
+
+
+        brokerMessagingTemplate.convertAndSend(topic, html.toString())
+
+    }
+
 
     def notifyJmsTopic(id){
 

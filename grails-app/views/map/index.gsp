@@ -67,7 +67,7 @@
 
         function addMarker(id, latitude, longitude){
 
-            var image = "${assetPath(src: 'zombie_marker.png')}";
+            var image = "${assetPath(src: 'zi_icon_zombie_overlord_marker.png')}";
 
             var myLatLng = new google.maps.LatLng(latitude, longitude);
 
@@ -81,7 +81,7 @@
 
             google.maps.event.addListener(marker, 'click', function() {
                 var zombieLink = "${createLink(uri: '/zombie/')}" + marker.id;
-                $.colorbox({href:zombieLink,innerWidth:"80%",innerHeight:"80%"})
+                $.colorbox({href:zombieLink,innerWidth:"30%",innerHeight:"30%"})
             });
 
         }

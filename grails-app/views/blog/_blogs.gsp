@@ -49,19 +49,8 @@
 
                 if (message.body) {
 
-                    // var blogContent = jQuery.parseJSON(message.body);
-                    console.log(message.body);
                     mainLayoutApi.loadBlogs('blogs-content', '${createLink(uri: '/blogs?sort=id&order=desc')}');
 
-                    /*
-
-
-                    if (counts.comments)
-                        $("#commentsCount").html(counts.comments);
-
-                    if (counts.likes)
-                        $("#likesCount").html(counts.likes);
-                    */
                 }
             });
         });

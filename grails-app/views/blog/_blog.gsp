@@ -4,9 +4,8 @@
 
     <div class="well" style="background:url(${assetPath(src: 'widget.jpg')}) right top no-repeat;">
 
-            <div><a style="text-decoration: none" href="${createLink(uri: "/blogs/$blog.id")}" title="Permalink to ${raw(blog.subject)}" rel="bookmark"><span id="blog-subject">${raw(blog.subject)}</span></a></div>
-            <asset:image src="${blog.author.twitterUser.icon.path}" width="30"></asset:image>
-            <span><a href="#" title="View all posts by ${blog.author.username}">${blog.author.username} <span class="badge" id="account_score">${blog.author.twitterUser.score}</span></a></span>
+            <div><a style="text-decoration: none" href="${createLink(uri: "/blogs/$blog.id")}" title="Permalink to ${raw(blog.subject)}"><asset:image src="${blog.author.twitterUser.icon.path}" width="30"></asset:image>  <span id="blog-subject">${raw(blog.subject)}</span></a></div>
+            <span><a class="ajax" href="${createLink(uri: "/zombie/${blog.author.id}")}" title="View all posts by ${blog.author.username}">${blog.author.username} <span class="badge" id="account_score">${blog.author.twitterUser.score}</span></a></span>
             <span> @ </span>
             <span><g:formatDate format="MM/dd/yyyy hh:mm:ss a z" date="${blog.created}"/></span>
 

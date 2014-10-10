@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <meta name='layout' content='singleColumn'/>
+    <meta name='layout' content='none'/>
 </head>
 
 <body>

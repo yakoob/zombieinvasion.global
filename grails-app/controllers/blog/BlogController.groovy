@@ -109,7 +109,6 @@ class BlogController {
 
                 notifyJmsBlogsTopic(blog.id)
 
-
                 zombieManagerService.actorRef.tell(new IncreaseScore(points: 10, name: user.username), akkaService.actorNoSender())
 
                 return
@@ -260,10 +259,7 @@ class BlogController {
 
         String topic = "/topic/blogs"
 
-        def html = render template: "/blog/blog", model:[blog:blog]
-
-
-        brokerMessagingTemplate.convertAndSend(topic, html.toString())
+        brokerMessagingTemplate.convertAndSend(topic, id)
 
     }
 

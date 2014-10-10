@@ -63,10 +63,10 @@
 
 
                     <g:set var="score" value="${user.TwitterUser.findByUsername(sec.username()).score}"/>
-                    <li class="${ ni == "account" ? 'active':''}"><a class="ajax" href="${createLink(uri: '/account?ni=account')}">Account <span class="badge" id="account_score">${score}</span></a></li>
+                    <li class="${ ni == "account" ? 'active':''}"><a href="${createLink(uri: '/account?ni=account')}">Account <span class="badge" id="account_score">${score}</span></a></li>
                 </sec:ifLoggedIn>
                 <sec:ifNotLoggedIn>
-                    <li class="${ ni == "account" ? 'active':''}"><a class="ajax" href="${createLink(uri: '/account?ni=account')}">Account</a></li>
+                    <li class="${ ni == "account" ? 'active':''}"><a href="${createLink(uri: '/account?ni=account')}">Account</a></li>
                 </sec:ifNotLoggedIn>
                 <li class="${ ni == "payment" ? 'active':''}"><a class="ajax" href="${createLink(uri: '/payment')}" title="Please help us keep our servers running...">Donate</a></li>
 

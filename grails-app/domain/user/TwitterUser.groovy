@@ -75,7 +75,7 @@ class TwitterUser  {
         switch(this.rank) {
             case Rank.Noob:
                 res.path = "zi_icon.png"
-                res.markerPath = "zi_icon_marker.png"
+                res.markerPath = "zi_icon_zombie_marker.png"
                 break
             case Rank.Viral_Zombie:
                 res.path = "zi_icon_viral_zombie.png"
@@ -97,7 +97,7 @@ class TwitterUser  {
                 res.path = "zi_icon_zombie_overlord.png"
                 res.markerPath = "zi_icon_zombie_overlord_marker.png"
                 break
-            case Rank.Viral_Zombie:
+            case Rank.Nuclear_Zombie:
                 res.path = "zi_icon_nuclear_zombie.png"
                 res.markerPath = "zi_icon_nuclear_zombie_marker.png"
                 break

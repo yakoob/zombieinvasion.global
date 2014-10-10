@@ -129,7 +129,9 @@ log4j.main = {
             'ip',
             'region',
             'account',
-            'payment'
+            'payment',
+            'rules',
+            'rank'
 
     info    'akka',
             'audio',
@@ -142,7 +144,9 @@ log4j.main = {
             'ip',
             'region',
             'account',
-            'payment'
+            'payment',
+            'rules',
+            'rank'
 
     debug   'akka',
             'audio',
@@ -155,7 +159,9 @@ log4j.main = {
             'ip',
             'region',
             'account',
-            'payment'
+            'payment',
+            'rules',
+            'rank'
 
 
 }
@@ -231,9 +237,6 @@ grails {
     }
 }
 
-grails.gorm.failOnError=true
-
-
 database.name=""
 freeswitch.host=""
 freeswitch.port=""
@@ -252,3 +255,13 @@ grails.plugin.springsecurity.twitter.consumerSecret=''
 
 app.readOnly=false
 
+grails.gorm.failOnError=true
+
+grails.gorm.default.mapping = {
+    version false
+    dynamicUpdate true
+}
+
+grails.gorm.default.constraints = {
+    '*'(nullable: true)
+}

@@ -15,7 +15,7 @@
 
         <div class="well" style="background:url(${assetPath(src: 'widget.jpg')}) right top no-repeat;">
 
-            <h4>by ${comment.user.username} @ <g:formatDate format="MM/dd/yyyy hh:mm:ss a z" date="${comment.created}"/></h4>
+            <h4><asset:image src="${comment.user.twitterUser.icon.path}" width="30"></asset:image> by ${comment.user.username} @ <g:formatDate format="MM/dd/yyyy hh:mm:ss a z" date="${comment.created}"/></h4>
             <p><strong>${raw(comment.comment.replace('\n', '<br>\n'))}</strong></p>
 
         </div>

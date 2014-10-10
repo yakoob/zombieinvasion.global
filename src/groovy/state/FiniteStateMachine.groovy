@@ -19,7 +19,7 @@ class FiniteStateMachine {
         currentState = startingState
     }
 
-    def record() {
+    Grammar record() {
         Grammar.newInstance(this)
     }
 
@@ -32,7 +32,7 @@ class FiniteStateMachine {
         if (!toState)
             toState = None
 
-        def state = toState.class.canonicalName
+        def state = toState.canonicalName
 
         log.info(" ")
         log.info("Transistion: ${this.currentState} => ${state}")

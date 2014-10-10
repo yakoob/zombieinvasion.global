@@ -3,30 +3,19 @@
 <html>
 
 <head>
-    <meta name='layout' content='main'/>
+    <meta name='layout' content='none'/>
 </head>
 
 <body>
 
-<div class="jumbotron">
-
+<div class="jumbotron jumbotron2">
+<div style="background:url(${assetPath(src: 'widget.jpg')}) right top no-repeat;">
 <sec:ifLoggedIn>
 
-    <div class="message">Authenticated</div>
-    Hello <sec:username/>!
-    <hr/>
-    <h2>Details</h2>
-    <table>
-        <tr>
-            <td>Username:</td>
-            <td><sec:loggedInUserInfo field="username"/></td>
-        </tr>
-        <tr>
-            <td>Roles:</td>
-            <td><sec:loggedInUserInfo field="authorities"/></td>
-        </tr>
-    </table>
-    <g:link uri="/j_spring_security_logout">Logout</g:link>
+    <span style="float: right;"><g:link uri="/j_spring_security_logout"><button type="button" class="btn btn-danger">Logout</button></g:link></span>
+    <g:render template="/account/details" model="[sighting:sighting, undeadStories:undeadStories, otherSightings:otherSightings]"></g:render>
+
+
 </sec:ifLoggedIn>
 <sec:ifNotLoggedIn>
 
@@ -39,7 +28,7 @@
 
 </sec:ifNotLoggedIn>
 
-
+</div>
 </div>
 
 

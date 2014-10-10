@@ -1,17 +1,20 @@
 package tracking
 
 import grails.transaction.Transactional
+import grails.util.Holders
+import message.SpawnZombie
 import org.joda.time.DateTime
 import region.UndeadSighting
 import user.TwitterUser
-import user.User
 
 @Transactional
 class UndeadService {
 
+    def akkaService
     def ipAddressService
     def cityService
-
+    def zombieManagerService
+    // def rankingRulesEngineService
 
     def track(String token) {
         track(TwitterUser.findByToken(token))
@@ -19,21 +22,34 @@ class UndeadService {
 
     def track(TwitterUser twitterUser) {
 
-        def ipAddress = ipAddressService.get()
-        def city = cityService.findByIpAddress(ipAddress)
+        try {
+            def ipAddress = ipAddressService.get()
 
-        if (!UndeadSighting.findByCityAndUser(city, twitterUser))
-            city.populationInfected = city.populationInfected + 1
+            if (ipAddress){
 
-        twitterUser.addToIps(ipAddress)
-        twitterUser.addToCities(city)
+                def city = cityService.findByIpAddress(ipAddress)
 
-        UndeadSighting undeadSighting = UndeadSighting.findOrCreateByCityAndLongitudeAndLatitudeAndUser(city, ipAddress.longitude, ipAddress.latitude, twitterUser)
-        undeadSighting.lastUpdated = DateTime.now().toDate()
+                if (!UndeadSighting.findByCityAndUser(city, twitterUser))
+                    city.populationInfected = city.populationInfected + 1
 
-        city.addToUndeadSightings(undeadSighting)
+                twitterUser.addToIps(ipAddress)
+                twitterUser.addToCities(city)
+
+                UndeadSighting undeadSighting = UndeadSighting.findOrCreateByCityAndLongitudeAndLatitudeAndUser(city, ipAddress.longitude, ipAddress.latitude, twitterUser)
+                undeadSighting.lastUpdated = DateTime.now().toDate()
+
+                city.addToUndeadSightings(undeadSighting)
+
+                zombieManagerService.actorRef.tell(new SpawnZombie(name: twitterUser.username), akkaService.actorNoSender())
+
+            } else {
+                log.error("ipAddressService.get() failed")
+            }
+        } catch (e){
+            log.error(e.message)
+        }
+
 
     }
-
 
 }

@@ -41,7 +41,7 @@ class IpAddressService {
      * Information from MaxMind Web API is cached in our database for 180 days and reused in subsequent calls.
      */
     IpAddress get() {
-        def i = getIpAddress()
+        def i = ipAddress
 
         try {
             if (!isValidIp(i))
@@ -58,16 +58,19 @@ class IpAddressService {
 
     public IpAddress get(String ip) {
 
-        IpAddress ipAddress = IpAddress.findOrCreateByIp(ip)
-
-        GeoIPLegacyInfo geoIPLegacyInfo = geoIPLegacyService.get(ipAddress.ip)
-
-        if(geoIPLegacyInfo)
-            ipAddress.properties = geoIPLegacyInfo.properties
-
-        ipAddress.save(failOnError: true)
+        IpAddress ipAddress = null
 
         try {
+
+            ipAddress = IpAddress.findOrCreateByIp(ip)
+
+            GeoIPLegacyInfo geoIPLegacyInfo = geoIPLegacyService.get(ipAddress.ip)
+
+            if(geoIPLegacyInfo)
+                ipAddress.properties = geoIPLegacyInfo.properties
+
+            ipAddress.save(failOnError: true)
+
             cityService.save(ipAddress)
         } catch (e){
             log.error(e)

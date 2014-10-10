@@ -52,4 +52,11 @@ class User {
 	protected void encodePassword() {
 		password = springSecurityService?.passwordEncoder ? springSecurityService.encodePassword(password) : password
 	}
+
+    def getTwitterUser(){
+        if(this.id){
+            return TwitterUser.findByUser(this)
+        }
+        return null
+    }
 }

@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Invasion Map - Track the global outbreak in real-time.</title>
-    <meta name="layout" content="singleColumn" />
+    <meta name="layout" content="main" />
 
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 
@@ -81,7 +81,7 @@
 
             google.maps.event.addListener(marker, 'click', function() {
                 var zombieLink = "${createLink(uri: '/zombie/')}" + marker.id;
-                $.colorbox({href:zombieLink,innerWidth:"30%",innerHeight:"30%"})
+                $.colorbox({href:zombieLink,innerWidth:"50%",innerHeight:"50%"})
             });
 
         }

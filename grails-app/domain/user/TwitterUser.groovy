@@ -1,10 +1,14 @@
 package user
 
-import blog.BlogEntry
 import grails.util.Holders
+import groovy.util.logging.Log4j
 import ip.IpAddress
+import message.IncreaseScore
+import message.SpawnZombie
+import payment.PaymentLog
 import region.City
 
+@Log4j
 class TwitterUser  {
 
     /**
@@ -27,12 +31,37 @@ class TwitterUser  {
      */
     String tokenSecret
 
-    /**
-     * Related to main App User
-     */
+    enum Rank {
+        Noob,
+        Viral_Zombie,
+        Zombie_King,
+        IScream_Zombie,
+        Blood_Zombie,
+        Zombie_Overlord,
+        Nuclear_Zombie
+    }
+    Rank rank = Rank.Noob
+
+    Long score = 0L
+
     static belongsTo = [user: user.User]
 
-    static hasMany = [ips: IpAddress, cities: City]
+    static hasMany = [ips: IpAddress, cities: City, payments: PaymentLog]
+
+    static mapping = {
+        rank enumType: "String"
+    }
+
+    def getDisplayRank(){
+        rank.name().replace("_", " ")
+    }
+
+    def afterInsert(){
+        def akkaService = Holders.applicationContext.getBean("akkaService")
+        def zombieManagerService = Holders.applicationContext.getBean("zombieManagerService")
+        zombieManagerService.actorRef.tell(new SpawnZombie(name: this.username), akkaService.actorNoSender())
+        zombieManagerService.actorRef.tell(new IncreaseScore(points: 5, name: this.username), akkaService.actorNoSender())
+    }
 
     static constraints = {
         twitterId(unique: true, nullable: false)
@@ -41,4 +70,39 @@ class TwitterUser  {
         cities nullable: true
     }
 
+    def getIcon(){
+        def res = new ZombieIcon()
+        switch(this.rank) {
+            case Rank.Noob:
+                res.path = "zi_icon.png"
+                res.markerPath = "zi_icon_marker.png"
+                break
+            case Rank.Viral_Zombie:
+                res.path = "zi_icon_viral_zombie.png"
+                res.markerPath = "zi_icon_viral_zombie_marker.png"
+                break
+            case Rank.Zombie_King:
+                res.path = "zi_icon_zombie_king.png"
+                res.markerPath = "zi_icon_zombie_king_marker.png"
+                break
+            case Rank.IScream_Zombie:
+                res.path = "zi_icon_iscream_zombie.png"
+                res.markerPath = "zi_icon_iscream_zombie_marker.png"
+                break
+            case Rank.Blood_Zombie:
+                res.path = "zi_icon_blood_zombie.png"
+                res.markerPath = "zi_icon_blood_zombie_marker.png"
+                break
+            case Rank.Zombie_Overlord:
+                res.path = "zi_icon_zombie_overlord.png"
+                res.markerPath = "zi_icon_zombie_overlord_marker.png"
+                break
+            case Rank.Viral_Zombie:
+                res.path = "zi_icon_nuclear_zombie.png"
+                res.markerPath = "zi_icon_nuclear_zombie_marker.png"
+                break
+
+        }
+        return res
+    }
 }

@@ -10,7 +10,6 @@ class PaymentController  {
 
     def index() {
 
-
     }
 
     def ipnListener(){
@@ -18,8 +17,6 @@ class PaymentController  {
         def ipn = new Ipn()
 
         bindData ipn, request
-
-        println(ipn)
 
         def paymentLog = new PaymentLog()
         paymentLog.transactionId = ipn.txn_id
@@ -29,6 +26,8 @@ class PaymentController  {
         paymentLog.user = User.findByUsername(ipn.custom)
         paymentLog.log = ipn.toString()
         paymentLog.save()
+
+        println(ipn)
 
         render status: HttpStatus.OK
     }

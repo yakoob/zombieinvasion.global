@@ -10,9 +10,9 @@ trait ActorMaker {
 
     def akkaService = Holders.applicationContext.getBean("akkaService")
 
-    public ActorRef makeInboundChannelActor(String channelUuid, String destination){
+    public ActorRef makeZombieActor(String name){
 
-        // return akkaService.system.actorOf(Props.create(InboundChannelActor.class, channelUuid, destination), "$channelUuid-$destination");
+        return akkaService.system.actorOf(Props.create(ZombieActor.class, name), "zombie-${name}");
 
     }
 

@@ -1,14 +1,17 @@
 package blog
 
 import grails.plugin.springsecurity.annotation.Secured
+import message.IncreaseScore
 import org.springframework.http.HttpStatus
 import user.User
 
 @Secured("permitAll")
 class BlogController {
 
+    def akkaService
     def springSecurityService
     def blogService
+    def zombieManagerService
     def brokerMessagingTemplate
 
     def index() {
@@ -50,10 +53,12 @@ class BlogController {
 
             def userBlogCount = BlogEntry.findAllByAuthor(user).id.size()
 
+            /*
             if (userBlogCount>1){
                 redirect(uri: "/payment")
                 return
             }
+            */
 
 
             if (params.id) {
@@ -74,7 +79,7 @@ class BlogController {
 
     def saveBlog(){
 
-        def user = springSecurityService.currentUser
+        User user = springSecurityService.currentUser
 
         if (user) {
 
@@ -103,6 +108,9 @@ class BlogController {
                 render status: HttpStatus.OK
 
                 notifyJmsBlogsTopic(blog.id)
+
+
+                zombieManagerService.actorRef.tell(new IncreaseScore(points: 10, name: user.username), akkaService.actorNoSender())
 
                 return
 
@@ -163,7 +171,10 @@ class BlogController {
                 blog.save(flush: true)
                 notifyJmsTopic(blog.id)
 
+                zombieManagerService.actorRef.tell(new IncreaseScore(points: 2, name: blog.author.username), akkaService.actorNoSender())
+
                 render status: HttpStatus.OK
+
                 return
 
             } catch (e) {
@@ -208,6 +219,8 @@ class BlogController {
             authenticatedUser.save(flush: true)
 
             notifyJmsTopic(blog.id)
+
+            zombieManagerService.actorRef.tell(new IncreaseScore(points: 1, name: blog.author.username), akkaService.actorNoSender())
 
             render status: HttpStatus.OK
             return

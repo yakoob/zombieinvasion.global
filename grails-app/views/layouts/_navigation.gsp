@@ -26,25 +26,50 @@
         </div>
 
         <div class="navbar-collapse collapse">
+
             <ul class="nav navbar-nav">
 
                 <li class="${ ni == "home" ? 'active':''}"><a href="${createLink(uri: '/home?ni=home')}">Home</a></li>
                 <li class="${ ni == "map" ? 'active':''}"><a href="${createLink(uri: '/map?ni=map')}">Invasion Map</a></li>
-                <li class="${ ni == "account" ? 'active':''}"><a href="${createLink(uri: '/account?ni=account')}">Account</a></li>
-                <li class="${ ni == "payment" ? 'active':''}"><a class="ajax" href="${createLink(uri: '/payment')}" title="Please help us keep our servers running...">Donate</a></li>
-                <%---
-                <li><a href="#about">About</a></li>
-                <li class="${ ni == "contact" ? 'active':''}"><a href="contactUs?ni=contact">Contact</a></li>
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="login?ni=account">Login</a></li>
-                        <li><a href="account?ni=account">Create</a></li>
-                        <li><a href="logout?ni=account">Logout</a></li>
-                    </ul>
-                </li>
-                ---%>
+                <sec:ifLoggedIn>
+
+
+                    <script>
+
+                        $(document).ready(function() {
+
+
+                            var socketScore = new SockJS("${createLink(uri: '/stomp')}");
+
+                            var clientScore = Stomp.over(socketScore);
+
+                            var topicScore = '/topic/score/${sec.username()}';
+
+
+                            clientScore.connect({}, function () {
+
+                                clientScore.subscribe(topicScore, function (message) {
+
+                                    if (message.body) {
+
+                                        $("#account_score").html(message.body)
+
+                                    }
+                                });
+                            });
+                        });
+                    </script>
+
+
+                    <g:set var="score" value="${user.TwitterUser.findByUsername(sec.username()).score}"/>
+                    <li class="${ ni == "account" ? 'active':''}"><a class="ajax" href="${createLink(uri: '/account?ni=account')}">Account <span class="badge" id="account_score">${score}</span></a></li>
+                </sec:ifLoggedIn>
+                <sec:ifNotLoggedIn>
+                    <li class="${ ni == "account" ? 'active':''}"><a class="ajax" href="${createLink(uri: '/account?ni=account')}">Account</a></li>
+                </sec:ifNotLoggedIn>
+                <li class="${ ni == "payment" ? 'active':''}"><a class="ajax" href="${createLink(uri: '/payment')}" title="Please help us keep our servers running...">Donate</a></li>
+
             </ul>
 
         </div><!--/.nav-collapse -->

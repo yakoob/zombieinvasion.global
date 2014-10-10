@@ -13,16 +13,13 @@ class ZombieActor extends BaseActor implements ObjectBinding, State {
     def akkaService = Holders.applicationContext.getBean("akkaService")
     def brokerMessagingTemplate = Holders.applicationContext.getBean("brokerMessagingTemplate")
 
-
     String name
-    TwitterUser twitterUser
 
     public ZombieActor(String name) {
 
         log.info("zombie actor initialized")
 
         this.name = name
-        this.twitterUser = TwitterUser.findByUsername(name)
 
         utils_traits_State__fsm.record().on([SpawnZombie]).from(All).to(All).act = { event ->
 
@@ -34,7 +31,9 @@ class ZombieActor extends BaseActor implements ObjectBinding, State {
         utils_traits_State__fsm.record().on([IncreaseScore]).from(All).to(All).act = { event ->
 
             log.info("INCREASE ZOMBIE SCORE")
+
             // utils_traits_State__fsm.goToState(utils_traits_State__fsm.currentValue)
+            def twitterUser = TwitterUser.findByUsername(name)
             twitterUser.score += event.points
             twitterUser.save()
 

@@ -10,6 +10,8 @@ class MapController {
         // todo add map clusters
         def undeadSightings = UndeadSighting.all
 
+        println(undeadSightings.size())
+
         render view: "index", model: [undeadSightings:undeadSightings]
 
     }

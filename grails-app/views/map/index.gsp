@@ -222,14 +222,14 @@
 
     <g:each in="${undeadSightings}" var="sighting">
 
-        var baseLon = ${sighting.longitude} - baseJitter / 2 + rnd() * baseJitter;
-        var baseLat = ${sighting.latitude} - baseJitter / 2 + rnd() * baseJitter;
+        var baseLon = ${sighting.longitude};
+        var baseLat = ${sighting.latitude};
         var clusterJitter = clusterJitterMax * rnd();
         var icon = '${assetPath(src: "${sighting.user.icon.markerPath}")}';
 
         data.push({
-            lon: baseLon - clusterJitter + rnd() * clusterJitter,
-            lat: baseLat - clusterJitter + rnd() * clusterJitter,
+            lon: baseLon,
+            lat: baseLat,
             h:   new Date(1E12 + rnd() * 1E11).toString(),
             d:   'score: '+${sighting.user.score},
             zid: ${sighting.id},

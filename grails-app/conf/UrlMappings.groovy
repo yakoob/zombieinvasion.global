@@ -8,12 +8,14 @@ class UrlMappings {
             }
         }
 
+        "/about"(controller: "home", action: "about")
+
         "/register"(controller: "account", action: "register")
 
         "/login"(controller: "account", action: "login")
 
         "/city"(controller: "city", action: "index")
-        "/city/$id"(controller: "city", action: "show")
+        "/city/$id/sightings"(controller: "city", action: "show")
 
 
         "/blogs"(controller: "blog", action: "index")
@@ -36,6 +38,7 @@ class UrlMappings {
         "/oauth/twitter/callback"(controller: "account", action: "oauthTwitter")
 
         "/zombie/$id"(controller: "account", action: "show")
+        "/z/$id"(controller: "account", action: "zombie")
 
         "/"(controller: "home", action: "index")
 

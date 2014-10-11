@@ -5,7 +5,7 @@
     <li class="list-group-item">
         <span class="badge"><g:formatNumber number="${it.populationInfected}" format="###,##0" /></span>
         ${raw(it.country.displayFlag())}
-        <a class="ajax" href="${createLink(uri: "/city/${it.id}")}">${it.city} <g:if test="${it.region?.description}">, ${it.region?.description}</g:if></a>
+        <a class="ajax" href="${createLink(uri: "/city/${it.id}/sightings")}">${it.city} <g:if test="${it.region?.description}">, ${it.region?.description}</g:if></a>
     </li>
 
 </g:each>

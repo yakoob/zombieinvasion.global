@@ -58,10 +58,19 @@ class TwitterUser  {
     }
 
     def afterInsert(){
+        def tweetService = Holders.applicationContext.getBean("tweetService")
         def akkaService = Holders.applicationContext.getBean("akkaService")
         def zombieManagerService = Holders.applicationContext.getBean("zombieManagerService")
+
         zombieManagerService.actorRef.tell(new SpawnZombie(name: this.username), akkaService.actorNoSender())
         zombieManagerService.actorRef.tell(new IncreaseScore(points: 5, name: this.username), akkaService.actorNoSender())
+
+        try {
+            tweetService.tweet("@${this.username} is now UnDead http://zombieinvasion.global/z/${this.user.id}")
+        } catch (e){
+            log.error(e)
+        }
+
     }
 
     static constraints = {

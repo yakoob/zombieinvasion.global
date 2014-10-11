@@ -7,7 +7,15 @@ import region.UndeadSighting
 class CityController {
 
     def index() {
-        render view:"index", model:[total:City.count, contents: City.list(params)]
+        render view:"index", model:[total:1, contents: City.list(params).first()]
+    }
+
+    def stats(){
+        render (view: "/city/stats")
+    }
+
+    def list(){
+        render view:"index", model:[total:1, contents: City.list(params).first()]
     }
 
     def show(){
@@ -17,16 +25,5 @@ class CityController {
         } else {
             respond status: HttpStatus.NO_CONTENT, text: HttpStatus.NO_CONTENT.name()
         }
-
-
     }
-
-    def stats(){
-        render (view: "/city/stats")
-    }
-
-    def list(){
-        render view:"index", model:[total:City.count, contents: City.list(params)]
-    }
-
 }

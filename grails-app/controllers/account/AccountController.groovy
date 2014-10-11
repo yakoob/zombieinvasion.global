@@ -51,4 +51,15 @@ class AccountController {
 
     }
 
+    def zombie(){
+
+        def id = params.id
+        def us = UndeadSighting.findById(id)
+
+        if (us)
+            render (view:"/account/zombie", model: [sighting:us, undeadStories:BlogEntry.findAllByAuthor(us?.user?.user), otherSightings:UndeadSighting.findAllByUser(us?.user)])
+        else
+            render status: HttpStatus.NO_CONTENT, text: HttpStatus.NO_CONTENT.name()
+
+    }
 }

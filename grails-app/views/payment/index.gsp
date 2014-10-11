@@ -18,14 +18,13 @@
                     <h3>Viral Zombie <span class="badge">50 Points</span></h3>
                     <p>Even $2 bucks will help us maintain our zombie realm.</p>
                     <script async="async" src="${assetPath(src: 'paypal-button.min.js')}?merchant=info@zombieinvasion.global"
-                            data-env="sandbox"
                             data-button="donate"
                             data-name="Donation"
                             data-amount="2"
                             data-custom="${sec.username()}"
                             data-text="$2 Donation"
-                            data-callback="http://home.yakoobahmad.com:8080/zombie-invasion-0.1/payment/paypal/ipn"
-                            data-return="http://localhost:8085/zombie-invasion/"
+                            data-callback="http://zombieinvasion.global/payment/paypal/ipn"
+                            data-return="http://zombieinvasion.global"
                     ></script>
                 </div>
             </div>
@@ -38,15 +37,14 @@
 
                     <p>Your $10 donation will help us maintain our zombie realm.</p>
 
-                    <script async="async" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=info@zombieinvasion.global"
-                            data-env="sandbox"
+                    <script async="async" src="${assetPath(src: 'paypal-button.min.js')}?merchant=info@zombieinvasion.global"
                             data-button="donate"
                             data-name="Donation"
                             data-amount="10"
                             data-text="$10 Donation"
                             data-custom="${sec.username()}"
-                            data-callback="http://home.yakoobahmad.com:8080/zombie-invasion-0.1/payment/paypal/ipn"
-                            data-return="http://localhost:8085/zombie-invasion/"
+                            data-callback="http://zombieinvasion.global/payment/paypal/ipn"
+                            data-return="http://zombieinvasion.global"
                     ></script>
 
                 </div>
@@ -59,15 +57,14 @@
                 <div class="caption">
                     <h3>IScream Zombie <span class="badge">300 Points</span></h3>
                     <p>Your $25 donation goes a long way in maintaining our zombie realm.</p>
-                    <script async="async" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=info@zombieinvasion.global"
-                            data-env="sandbox"
+                    <script async="async" src="${assetPath(src: 'paypal-button.min.js')}?merchant=info@zombieinvasion.global"
                             data-button="donate"
                             data-name="Donation"
                             data-amount="25"
                             data-text="$25 Donation"
                             data-custom="${sec.username()}"
-                            data-callback="http://home.yakoobahmad.com:8080/zombie-invasion-0.1/payment/paypal/ipn"
-                            data-return="http://localhost:8085/zombie-invasion/"
+                            data-callback="http://zombieinvasion.global/payment/paypal/ipn"
+                            data-return="http://zombieinvasion.global"
                     ></script>
 
                 </div>
@@ -80,15 +77,14 @@
                 <div class="caption">
                     <h3>Blood Zombie <span class="badge">500 Points</span></h3>
                     <p>Your generous $50 donation goes a long way in maintaining our zombie realm.</p>
-                    <script async="async" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=info@zombieinvasion.global"
-                            data-env="sandbox"
+                    <script async="async" src="${assetPath(src: 'paypal-button.min.js')}?merchant=info@zombieinvasion.global"
                             data-button="donate"
                             data-name="Donation"
                             data-amount="50"
                             data-text="$50 Donation"
                             data-custom="${sec.username()}"
-                            data-callback="http://home.yakoobahmad.com:8080/zombie-invasion-0.1/payment/paypal/ipn"
-                            data-return="http://localhost:8085/zombie-invasion/"
+                            data-callback="http://zombieinvasion.global/payment/paypal/ipn"
+                            data-return="http://zombieinvasion.global"
                     ></script>
                 </div>
             </div>
@@ -101,15 +97,14 @@
                 <div class="caption">
                     <h3>Zombie Overlord <span class="badge">1000 Points</span></h3>
                     <p>You awesome brain eater!!!</p>
-                    <script async="async" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=info@zombieinvasion.global"
-                            data-env="sandbox"
+                    <script async="async" src="${assetPath(src: 'paypal-button.min.js')}?merchant=info@zombieinvasion.global"
                             data-button="donate"
                             data-name="Donation"
                             data-amount="100"
                             data-text="$100 Donation"
                             data-custom="${sec.username()}"
-                            data-callback="http://home.yakoobahmad.com:8080/zombie-invasion-0.1/payment/paypal/ipn"
-                            data-return="http://localhost:8085/zombie-invasion/"
+                            data-callback="http://zombieinvasion.global/payment/paypal/ipn"
+                            data-return="http://zombieinvasion.global"
                     ></script>
 
                 </div>
@@ -121,16 +116,15 @@
                 <img src="${assetPath(src: 'icon_nuclear_vs.png')}" style="height: 100px;">
                 <div class="caption">
                     <h3>Nuclear Zombie <span class="badge">2000 Points</span></h3>
-                    <p>Do you have so much money you have no idea what to do with it???  Well we do...  You'll be awarded with the V.I.Z Five Star Nuclear Zombie</p>
-                    <script async="async" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=info@zombieinvasion.global"
-                            data-env="sandbox"
+                    <p>Do you have so much money you have no idea what to do with it???  Well we do...  You'll be awarded with the V.I.Z Five Star Nuclear Zombie which is other was</p>
+                    <script async="async" src="${assetPath(src: 'paypal-button.min.js')}?merchant=info@zombieinvasion.global"
                             data-button="donate"
                             data-name="Donation"
                             data-amount="500"
                             data-text="$500 Donation"
                             data-custom="${sec.username()}"
-                            data-callback="http://home.yakoobahmad.com:8080/zombie-invasion-0.1/payment/paypal/ipn"
-                            data-return="http://localhost:8085/zombie-invasion/"
+                            data-callback="http://zombieinvasion.global/payment/paypal/ipn"
+                            data-return="http://zombieinvasion.global"
                     ></script>
 
                 </div>

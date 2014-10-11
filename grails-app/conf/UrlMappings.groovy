@@ -13,7 +13,7 @@ class UrlMappings {
         "/login"(controller: "account", action: "login")
 
         "/city"(controller: "city", action: "index")
-        "/city/$id"(controller: "city", action: "index")
+        "/city/$id"(controller: "city", action: "show")
 
 
         "/blogs"(controller: "blog", action: "index")

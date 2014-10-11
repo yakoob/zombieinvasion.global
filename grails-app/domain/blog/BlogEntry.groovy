@@ -17,6 +17,8 @@ class BlogEntry {
     static belongsTo = [User]
 
     static constraints = {
+        body nullable: false
+        subject nullable: false
         categories nullable: true
     }
 

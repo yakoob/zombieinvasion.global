@@ -1,6 +1,7 @@
-<!DOCTYPE html>
 <html>
+
 <head>
+
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 
@@ -25,14 +26,15 @@
         var mainLayoutApi = new MainLayoutAPI();
         mainLayoutApi.init();
     </script>
-    <style>
-    html { height: auto; }
-    body { height: auto; margin: 0; padding: 0;}
-    table { border-collapse: collapse; border-spacing: 0; }
 
-    #map_canvas { height: auto; position: absolute; bottom: 0; left: 0; right: 0; top: 170px; }
-    @media print { #map_canvas { height: 85px; } }
+    <style>
+        html { height: auto; }
+        body { height: auto; margin: 0; padding: 0;}
+        table { border-collapse: collapse; border-spacing: 0; }
+        #map_canvas { height: auto; position: absolute; bottom: 0; left: 0; right: 0; top: 170px; }
+        @media print { #map_canvas { height: 100%; } }
     </style>
+
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 
     <asset:javascript src="oms.js"></asset:javascript>
@@ -198,23 +200,8 @@
     </div>
 </div>
 
-
-</body>
-
-
-
-
-
-
-
-
-
 <script>
 
-
-    // randomize some overlapping map data -- more normally we'd load some JSON data instead
-    var baseJitter = 2.5;
-    var clusterJitterMax = 0.1;
     var rnd = Math.random;
     var data = [];
 
@@ -222,22 +209,24 @@
 
     <g:each in="${undeadSightings}" var="sighting">
 
-        var baseLon = ${sighting.longitude};
-        var baseLat = ${sighting.latitude};
-        var clusterJitter = clusterJitterMax * rnd();
-        var icon = '${assetPath(src: "${sighting.user.icon.markerPath}")}';
+    baseLon = ${sighting.longitude};
+    baseLat = ${sighting.latitude};
+    var icon = '${assetPath(src: "${sighting.user.icon.markerPath}")}';
 
-        data.push({
-            lon: baseLon,
-            lat: baseLat,
-            h:   new Date(1E12 + rnd() * 1E11).toString(),
-            d:   'score: '+${sighting.user.score},
-            zid: ${sighting.id},
-            zion: icon
-        });
+    data.push({
+        lon: baseLon,
+        lat: baseLat,
+        h:   "${sighting.user.username} seen on ${sighting.created.toString()}",
+        d:   "${sighting.user.username}'s score: "+${sighting.user.score},
+        zid: ${sighting.id},
+        zion: icon
+    });
 
     </g:each>
 
     window.mapData = data;
 </script>
+
+</body>
+
 </html>

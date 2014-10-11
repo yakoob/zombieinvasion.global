@@ -16,7 +16,7 @@
                             data-button="donate"
                             data-name="Donation"
                             data-amount="2"
-                            data-custom="id10t"
+                            data-custom="${sec.username()}"
                             data-text="$2 Donation"
                             data-callback="http://home.yakoobahmad.com:8080/zombie-invasion-0.1/payment/paypal/ipn"
                             data-return="http://localhost:8085/zombie-invasion/"
@@ -38,6 +38,7 @@
                             data-name="Donation"
                             data-amount="10"
                             data-text="$10 Donation"
+                            data-custom="${sec.username()}"
                             data-callback="http://home.yakoobahmad.com:8080/zombie-invasion-0.1/payment/paypal/ipn"
                             data-return="http://localhost:8085/zombie-invasion/"
                     ></script>
@@ -58,6 +59,7 @@
                             data-name="Donation"
                             data-amount="25"
                             data-text="$25 Donation"
+                            data-custom="${sec.username()}"
                             data-callback="http://home.yakoobahmad.com:8080/zombie-invasion-0.1/payment/paypal/ipn"
                             data-return="http://localhost:8085/zombie-invasion/"
                     ></script>
@@ -78,6 +80,7 @@
                             data-name="Donation"
                             data-amount="50"
                             data-text="$50 Donation"
+                            data-custom="${sec.username()}"
                             data-callback="http://home.yakoobahmad.com:8080/zombie-invasion-0.1/payment/paypal/ipn"
                             data-return="http://localhost:8085/zombie-invasion/"
                     ></script>
@@ -98,6 +101,7 @@
                             data-name="Donation"
                             data-amount="100"
                             data-text="$100 Donation"
+                            data-custom="${sec.username()}"
                             data-callback="http://home.yakoobahmad.com:8080/zombie-invasion-0.1/payment/paypal/ipn"
                             data-return="http://localhost:8085/zombie-invasion/"
                     ></script>
@@ -118,6 +122,7 @@
                             data-name="Donation"
                             data-amount="500"
                             data-text="$500 Donation"
+                            data-custom="${sec.username()}"
                             data-callback="http://home.yakoobahmad.com:8080/zombie-invasion-0.1/payment/paypal/ipn"
                             data-return="http://localhost:8085/zombie-invasion/"
                     ></script>

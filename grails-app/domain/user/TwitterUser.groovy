@@ -38,7 +38,8 @@ class TwitterUser  {
         IScream_Zombie,
         Blood_Zombie,
         Zombie_Overlord,
-        Nuclear_Zombie
+        Nuclear_Zombie,
+        VIZ_Nuclear_Zombie
     }
     Rank rank = Rank.Noob
 
@@ -101,7 +102,10 @@ class TwitterUser  {
                 res.path = "zi_icon_nuclear_zombie.png"
                 res.markerPath = "zi_icon_nuclear_zombie_marker.png"
                 break
-
+            case Rank.VIZ_Nuclear_Zombie:
+                res.path = "zi_icon_nuclear_zombie_5star.png"
+                res.markerPath = "zi_icon_nuclear_zombie_5star_marker.png"
+                break
         }
         return res
     }

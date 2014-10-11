@@ -46,7 +46,7 @@ class PaymentController  {
 
         def points = 10
 
-        switch ( amount.longValue() ) {
+        switch ( amount.toInteger() ) {
 
             case 0..9:
                 points = 50
@@ -55,19 +55,16 @@ class PaymentController  {
                 points = 100
                 break
             case 25..49:
-                points = 200
+                points = 300
                 break
             case 50..99:
-                points = 400
+                points = 500
                 break
-            case 100..200:
-                points = 800
+            case 100..499:
+                points = 1000
                 break
-            case 201..499:
-                points = 1800
-                break
-            case 500..9999999:
-                points = 5000
+            case 500..10000:
+                points = 50000
                 break
 
         }

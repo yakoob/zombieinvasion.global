@@ -23,18 +23,19 @@ class ZombieActor extends BaseActor implements ObjectBinding, State {
 
         utils_traits_State__fsm.record().on([SpawnZombie]).from(All).to(All).act = { event ->
 
-            log.info("ITS ALIVE")
+            log.info("ITS ALIVE - {$name}")
             // utils_traits_State__fsm.goToState(utils_traits_State__fsm.currentValue)
 
         }
 
         utils_traits_State__fsm.record().on([IncreaseScore]).from(All).to(All).act = { event ->
 
-            log.info("INCREASE ZOMBIE SCORE")
+            log.info("INCREASE ZOMBIE SCORE - ${event.points} ${name}")
 
             // utils_traits_State__fsm.goToState(utils_traits_State__fsm.currentValue)
             def twitterUser = TwitterUser.findByUsername(name)
             twitterUser.score += event.points
+            twitterUser.rank = currentStatus(twitterUser.score)
             twitterUser.save()
 
             notifyJmsTopic(twitterUser)
@@ -42,6 +43,44 @@ class ZombieActor extends BaseActor implements ObjectBinding, State {
         }
 
     }
+
+    public TwitterUser.Rank currentStatus(Long p){
+
+        def points = p.toInteger()
+
+        println points
+
+        def status = TwitterUser.Rank.Noob
+
+        switch ( points ) {
+
+            case 50..99:
+                status = TwitterUser.Rank.Viral_Zombie
+                break
+            case 100..299:
+                status = TwitterUser.Rank.Zombie_King
+                break
+            case 300..499:
+                status = TwitterUser.Rank.IScream_Zombie
+                break
+            case 500..999:
+                status = TwitterUser.Rank.Blood_Zombie
+                break
+            case 1000..1999:
+                status = TwitterUser.Rank.Zombie_Overlord
+                break
+            case 2000..49999:
+                status = TwitterUser.Rank.Nuclear_Zombie
+                break
+            case 50000..900000:
+                status = TwitterUser.Rank.VIZ_Nuclear_Zombie
+                break
+
+        }
+
+        return status
+    }
+
 
     def notifyJmsTopic(TwitterUser twitterUser){
 

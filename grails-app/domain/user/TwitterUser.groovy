@@ -66,7 +66,7 @@ class TwitterUser  {
         zombieManagerService.actorRef.tell(new IncreaseScore(points: 5, name: this.username), akkaService.actorNoSender())
 
         try {
-            tweetService.tweet("@${this.username} is now UnDead http://zombieinvasion.global/z/${this.user.id}")
+            tweetService.tweet("@${this.username} is now UnDead http://zombieinvasion.global/z/${this.user.id} " )
         } catch (e){
             log.error(e)
         }

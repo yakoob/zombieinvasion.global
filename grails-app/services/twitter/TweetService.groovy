@@ -21,8 +21,8 @@ class TweetService {
                 .setOAuthAccessTokenSecret(ga.config.oauth.accessTokenSecret);
         TwitterFactory tf = new TwitterFactory(cb.build());
         Twitter twitter = tf.getInstance();
-        // Status status = twitter.updateStatus("$latestStatus #zombieInvasion #zombie #WalkingDead #zombies #ZombieWalk");
-        Status status = twitter.updateStatus("$latestStatus");
+        Status status = twitter.updateStatus("$latestStatus #zombieInvasion #zombie #WalkingDead #zombies #ZombieWalk");
+        // Status status = twitter.updateStatus("$latestStatus");
         System.out.println("Successfully updated the status to [" + status.getText() + "].");
     }
 }

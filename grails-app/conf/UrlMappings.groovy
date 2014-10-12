@@ -40,6 +40,8 @@ class UrlMappings {
         "/zombie/$id"(controller: "account", action: "show")
         "/z/$id"(controller: "account", action: "zombie")
 
+        "/sitemap"(controller: "siteMap", action: "index")
+
         "/"(controller: "home", action: "index")
 
         "500"(view:'/error')

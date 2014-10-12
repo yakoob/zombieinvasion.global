@@ -12,13 +12,20 @@
     <link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
     <link rel="icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
 
-    <asset:javascript src="jquery.min.js"/>
-    <asset:javascript src="Modernizr.js"/>
+
+
+
     <asset:stylesheet src="colorbox.css"/>
-    <asset:javascript src="jquery.colorbox-min.js"/>
     <asset:stylesheet src="bootstrap.min.css"/>
     <asset:stylesheet src="bootstrap-theme.min.css"/>
     <asset:stylesheet src="style.css"/>
+
+    <asset:javascript src="jquery.min.js"/>
+    <asset:javascript src="Modernizr.js"/>
+    <asset:javascript src="sockjs.js"/>
+    <asset:javascript src="stomp.js"/>
+    <asset:javascript src="spring-websocket.js"/>
+    <asset:javascript src="jquery.colorbox-min.js"/>
     <asset:javascript src="bootstrap.min.js"/>
     <asset:javascript src="MainLayoutAPI.js"/>
 
@@ -31,7 +38,7 @@
         html { height: auto; }
         body { height: auto; margin: 0; padding: 0;}
         table { border-collapse: collapse; border-spacing: 0; }
-        #map_canvas { height: auto; position: absolute; bottom: 0; left: 0; right: 0; top: 170px; }
+        #map_canvas { height: auto; position: absolute; bottom: 0; left: 0; right: 0; top: 250px; }
         @media print { #map_canvas { height: 100%; } }
     </style>
 
@@ -174,7 +181,7 @@
                 </div>
 
                 <g:render template="/layouts/navigation"/>
-
+                <div class="alert alert-danger" role="alert"><asset:image src="zombie.svg" width="40"/> <b>Don't worry... Your exact location is not known and cannot be shared... Just the city or neighboring city from which your IP address is served from.</b></div>
             </div><!-- #header -->
 
 

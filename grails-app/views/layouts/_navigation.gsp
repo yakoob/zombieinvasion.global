@@ -33,7 +33,7 @@
 
                 <li class="${ ni == "map" ? 'active':''}"><a href="${createLink(uri: '/map?ni=map')}">Invasion Map</a></li>
 
-                <li class="${ ni == "about" ? 'active':''}"><a href="${createLink(uri: '/about?ni=about')}">How does this works?</a></li>
+                <li class="${ ni == "about" ? 'active':''}"><a href="${createLink(uri: '/about?ni=about')}">How does this work?</a></li>
 
                 <sec:ifLoggedIn>
 

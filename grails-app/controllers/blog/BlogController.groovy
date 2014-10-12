@@ -89,6 +89,8 @@ class BlogController {
 
                 if (params.id){
 
+                    println "update blog ${params.id}"
+
                     blog = BlogEntry.get(params.id)
 
                     if (!blog) {
@@ -96,20 +98,39 @@ class BlogController {
                         return
                     }
 
+
+                    if (user != blog.author){
+                        render status: HttpStatus.UNAUTHORIZED
+                        return
+                    }
+
+                    blog.title = params.title
+                    blog.subject = params.subject
+                    blog.body = params.body
+
+                    blog.save(flush: true)
+
+                    render status: HttpStatus.OK
+
+                    notifyJmsBlogsTopic(blog.id)
+
                 } else {
+
+                    println "save new blog"
+
                     blog = new BlogEntry(params)
+                    blog.author = user
+                    blog.save()
+
+                    render status: HttpStatus.OK
+
+                    notifyJmsBlogsTopic(blog.id)
+
+                    zombieManagerService.actorRef.tell(new IncreaseScore(points: 10, name: user.username), akkaService.actorNoSender())
+
                 }
 
 
-                blog.author = user
-
-                blog.save()
-
-                render status: HttpStatus.OK
-
-                notifyJmsBlogsTopic(blog.id)
-
-                zombieManagerService.actorRef.tell(new IncreaseScore(points: 10, name: user.username), akkaService.actorNoSender())
 
                 return
 

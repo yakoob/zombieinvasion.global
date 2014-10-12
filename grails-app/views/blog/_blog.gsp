@@ -22,31 +22,43 @@
         <table width="100%" border="0" class="blogFooter">
             <tr>
 
-                <td>
+                <td width="60%">
                     <g:formRemote id="likeForm${blog.id}" name="likeForm${blog.id}" update="likeResult${blog.id}" url='[uri: "/like/${blog.id}"]'>
-                        <ul class="nav nav-pills">
+                <ul class="nav nav-pills">
 
-                            <li>
+                    <g:if test="${sec.username() == blog.author.username}">
+                    <li>
+                        <a class="ajax" href="${createLink(uri: "/blog/form?id=${blog.id}")}">
+                        <span style="border:0;background-color:transparent;color:#99090A;margin-top: 8px;">
+                            <span class="glyphicon glyphicon-pencil"></span> Edit &nbsp;
+                        </span>
+                        </a>
+                    </li>
+                    </g:if>
 
-                                <button style="border:0;background-color:transparent;color:#99090A;margin-top: 8px;">
-                                    <span class="glyphicon glyphicon-thumbs-up"></span> like
-                                    <span class="badge" id="likesCount${blog.id}">${blog?.likes?.size()}</span>
-                                </button>
+                    <li>
 
-                            </li>
+                        <button style="border:0;background-color:transparent;color:#99090A;margin-top: 8px;">
+                            <span class="glyphicon glyphicon-thumbs-up"></span> like
+                            <span class="badge" id="likesCount${blog.id}">${blog?.likes?.size()}</span>
+                        </button>
 
-                            <li>
-                                <g:if test="${blog.commentsEnabled.toBoolean()==false}"><a>Comments Off</a></g:if>
-                                <g:else>
-                                    <a class='ajax' href="${createLink(uri: "/comment/${blog.id}")}" title="comment on: ${blog.subject}">
-                                        Comments
-                                        <span class="badge" id="commentsCount${blog.id}">${blog.comments?.size()}</span>
-                                    </a>
+                    </li>
 
-                                </g:else>
-                            </li>
+                    <li>
+                        <g:if test="${blog.commentsEnabled.toBoolean()==false}"><a>Comments Off</a></g:if>
+                        <g:else>
+                            <a class='ajax' href="${createLink(uri: "/comment/${blog.id}")}" title="comment on: ${blog.subject}">
+                                Comments
+                                <span class="badge" id="commentsCount${blog.id}">${blog.comments?.size()}</span>
+                            </a>
 
-                        </ul>
+                        </g:else>
+                    </li>
+
+
+
+                </ul>
                     </g:formRemote>
                 </td>
                 <td class="tags" width="30%">

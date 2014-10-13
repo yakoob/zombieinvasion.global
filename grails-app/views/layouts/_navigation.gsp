@@ -41,30 +41,19 @@
                     <script>
 
                         $(document).ready(function() {
-
-
-                            function connectCallback(){
-
-                                console.log("connect call back");
+                            setTimeout(function(){
 
                                 client.subscribe("/topic/score/${sec.username()}", function(message) {
                                     // called when the client receives a STOMP message from the server
                                     if (message.body) {
                                         $("#account_score").html(message.body)
                                     } else {
-                                        alert("got empty message");
+                                        // alert("got empty message");
                                     }
                                 });
 
-                            }
 
-                            var headers = {
-                                login: 'mylogin',
-                                passcode: 'mypasscode',
-                                'client-id': 'server01'
-                            };
-
-                            client.connect(headers, connectCallback);
+                            }, 2000);
 
 
                         });

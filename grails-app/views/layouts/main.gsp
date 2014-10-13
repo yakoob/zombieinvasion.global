@@ -35,10 +35,23 @@
         var mainLayoutApi = new MainLayoutAPI();
         mainLayoutApi.init();
 
+        function connectCallback(){
+            // console.log("connect call back");
+            // client.send("/app/hello", {priority: 9}, JSON.stringify({ 'name': 'Joe' }));
+        }
 
         $(document).ready(function() {
             websocket = new SockJS("${createLink(uri: '/stomp')}");
             client = Stomp.over(websocket);
+
+            var headers = {
+                login: 'mylogin',
+                passcode: 'mypasscode',
+                'client-id': 'server01'
+            };
+
+            client.connect(headers, connectCallback);
+
         });
 
 

@@ -42,24 +42,36 @@ class AccountController {
     def show(){
 
         def id = params.id
-        def us = UndeadSighting.findById(id)
+        def user = User.get(id)
 
-        if (us)
-            render (view:"/account/show", model: [sighting:us, undeadStories:BlogEntry.findAllByAuthor(us?.user?.user), otherSightings:UndeadSighting.findAllByUser(us?.user)])
-        else
+
+        if (user){
+            def uds = UndeadSighting.findAllByUser(user.twitterUser)
+            render (view:"/account/show", model: [sighting:uds.last(), undeadStories:BlogEntry.findAllByAuthor(user), otherSightings:uds])
+        }
+
+        else {
             render status: HttpStatus.NO_CONTENT, text: HttpStatus.NO_CONTENT.name()
+        }
 
     }
 
     def zombie(){
 
         def id = params.id
-        def us = UndeadSighting.findById(id)
+        def user = User.get(id)
 
-        if (us)
-            render (view:"/account/zombie", model: [sighting:us, undeadStories:BlogEntry.findAllByAuthor(us?.user?.user), otherSightings:UndeadSighting.findAllByUser(us?.user)])
-        else
+
+
+        if (user){
+            def uds = UndeadSighting.findAllByUser(user.twitterUser)
+            render (view:"/account/zombie", model: [sighting:uds.last(), undeadStories:BlogEntry.findAllByAuthor(user), otherSightings:uds])
+        }
+
+        else {
             render status: HttpStatus.NO_CONTENT, text: HttpStatus.NO_CONTENT.name()
+        }
+
 
     }
 }

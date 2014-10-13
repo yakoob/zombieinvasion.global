@@ -15,17 +15,7 @@ var MainLayoutAPI = function(){
     }
 
     function webSocketListener(topic){
-        // var topic = '/topic/random_quotes';
-        var topic = '/topic/random_quotes';
-        var socket = new SockJS("/stomp");
-        var client = Stomp.over(socket);
-        client.connect({}, function() {
-            client.subscribe(topic, function(message) {
-                if (message.body) {
-                    $("#quoteMsgDiv").html(message.body);
-                }
-            });
-        });
+
     }
 
     function searchListener(){

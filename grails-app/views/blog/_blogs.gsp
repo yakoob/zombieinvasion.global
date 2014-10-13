@@ -31,32 +31,25 @@
 
 </sec:ifNotLoggedIn>
 
-
 <script>
 
     $(document).ready(function() {
 
+        setTimeout(function(){
 
-        var socketBlogs = new SockJS("${createLink(uri: '/stomp')}");
-
-        var clientBlogs = Stomp.over(socketBlogs);
-
-        var topicBlogs = '/topic/blogs';
-
-        clientBlogs.connect({}, function () {
-
-            clientBlogs.subscribe(topicBlogs, function (message) {
+            client.subscribe('/topic/blogs', function (message) {
 
                 if (message.body) {
-
                     mainLayoutApi.loadBlogs('blogs-content', '${createLink(uri: '/blogs?sort=id&order=desc')}');
-
                 }
-            });
-        });
-    });
-</script>
 
+            });
+
+        }, 2000);
+
+    });
+
+</script>
 
 <g:javascript plugin="remote-pagination" library="remoteNonStopPageScroll"/>
 

@@ -76,6 +76,36 @@
 
 </div>
 
+
+
+<script>
+
+    $(document).ready(function() {
+
+        setTimeout(function(){
+
+            client.subscribe('/topic/blog/${blog.id}', function (message) {
+
+                if (message.body) {
+                    var counts = jQuery.parseJSON(message.body);
+
+                    if (counts.comments)
+                        $("#commentsCount${blog.id}").html(counts.comments);
+
+                    if (counts.likes)
+                        $("#likesCount${blog.id}").html(counts.likes);
+                }
+
+            });
+
+        }, 2000);
+
+    });
+
+</script>
+
+
+<%---
 <script>
 
     $(document).ready(function() {
@@ -106,3 +136,4 @@
         });
     });
 </script>
+---%>

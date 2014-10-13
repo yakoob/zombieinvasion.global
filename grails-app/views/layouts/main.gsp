@@ -34,6 +34,16 @@
     <script>
         var mainLayoutApi = new MainLayoutAPI();
         mainLayoutApi.init();
+
+
+        $(document).ready(function() {
+            websocket = new SockJS("${createLink(uri: '/stomp')}");
+            client = Stomp.over(websocket);
+        });
+
+
+
+
     </script>
 </head>
 

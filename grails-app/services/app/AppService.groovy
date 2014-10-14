@@ -10,7 +10,10 @@ class AppService {
     def grailsApplication
     def akkaService
     def zombieManagerService
-    ActorRef mediator
+
+    // http://eweise.com/articles/akka-cluster-example/
+    // http://doc.akka.io/docs/akka/snapshot/contrib/distributed-pub-sub.html
+    // http://www.theotherian.com/2014/03/spring-boot-websockets-stomp-chat.html
 
     public static DateTime LAST_HEARTBEAT = DateTime.now()
 
@@ -21,8 +24,6 @@ class AppService {
         }
 
         createActors()
-
-        ActorRef mediator = DistributedPubSubExtension.get(akkaService.system).mediator()
 
         LAST_HEARTBEAT = DateTime.now()
 

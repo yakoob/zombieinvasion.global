@@ -73,6 +73,7 @@ grails.project.dependency.resolution = {
         compile 'org.freeswitch:java-esl-client:0.9.2'
         compile 'com.typesafe.akka:akka-actor_2.10:2.4-SNAPSHOT'
         compile 'com.typesafe.akka:akka-remote_2.10:2.4-SNAPSHOT'
+        compile 'com.typesafe.akka:akka-contrib_2.10:2.3.6'
         compile 'joda-time:joda-time:2.3'
         compile "org.jadira.usertype:usertype.jodatime:2.0"
         compile "com.google:rfc:1.0"

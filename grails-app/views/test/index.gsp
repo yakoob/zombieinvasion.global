@@ -5,7 +5,7 @@
 
   <asset:javascript src="jquery" />
   <asset:javascript src="spring-websocket" />
-
+  
   <script type="text/javascript">
     $(function() {
 

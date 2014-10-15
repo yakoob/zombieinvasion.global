@@ -91,11 +91,11 @@ environments {
         grails.logging.jul.usebridge = true
     }
     test {
-
+        grails.serverURL = "https://zombieinvasion.global"
     }
     production {
         grails.logging.jul.usebridge = false
-        grails.serverURL = "http://zombieinvasion.global"
+        grails.serverURL = "https://zombieinvasion.global"
     }
 }
 

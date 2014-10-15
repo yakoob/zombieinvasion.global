@@ -2,7 +2,7 @@
 
     <sec:ifAllGranted roles="ROLE_TWITTER">
 
-        <g:formRemote id="saveBlogForm" name="saveBlogForm" onSuccess="window.location.href='${createLink(uri: "/blogs/latest")}'; " onComplete="jQuery('.jquery').colorbox.close();" url="[controller: 'blog', action:'saveBlog']">
+        <g:formRemote id="saveBlogForm" name="saveBlogForm" before="validateBlogEntry()" onSuccess="window.location.href='${createLink(uri: "/blogs/latest")}'; jQuery('.jquery').colorbox.close();" url="[controller: 'blog', action:'saveBlog']">
 
 
             <div class="input-group input-group-lg">
@@ -52,6 +52,50 @@
             </g:if>
 
         </g:formRemote>
+
+
+        <script>
+
+
+            function validateBlogEntry(){
+
+                var isValid = true;
+                $('input[type="text"]').each(function() {
+                    if ($.trim($(this).val()) == '') {
+                        isValid = false;
+                        $(this).css({
+                            "border": "1px solid red",
+                            "background": "#FFCECE"
+                        });
+                    }
+                    else {
+                        $(this).css({
+                            "border": "",
+                            "background": ""
+                        });
+                    }
+                });
+
+                if ($("#body").val() == '') {
+                    isValid = false;
+                    $("#body").css({
+                        "border": "1px solid red",
+                        "background": "#FFCECE"
+                    });
+                } else {
+                    $("#body").css({
+                        "border": "",
+                        "background": ""
+                    });
+                }
+
+                if (isValid == false) {
+                    e.preventDefault();
+                }
+
+            }
+        </script>
+
 
     </sec:ifAllGranted>
 

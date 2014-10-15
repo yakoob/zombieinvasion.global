@@ -15,11 +15,17 @@
                     </div>
                     <div class="panel-body">
                         <p>${raw(sighting.city.country.displayFlag())} ${sighting.city.city}, ${sighting.city?.region?.description} @ <g:formatDate format="MM/dd/yyyy hh:mm:ss a z" date="${sighting.lastUpdated}"/></p>
+
+                        <center>
+                        <a href="https://twitter.com/${sighting.user.username}" class="twitter-follow-button" data-show-count="false" data-size="small">Follow @${sighting.user.username} on Twitter</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                        </center>
                     </div>
 
                 </div>
 
             </div>
+
         </div>
     </div>
 

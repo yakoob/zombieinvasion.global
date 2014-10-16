@@ -73,8 +73,10 @@
                 <sec:ifNotLoggedIn>
                     <li class="${ ni == "account" ? 'active':''}"><a href="${createLink(uri: '/account?ni=account')}">Account</a></li>
                 </sec:ifNotLoggedIn>
-                <li class="${ ni == "payment" ? 'active':''}"><a class="ajax" href="${createLink(uri: '/payment')}" title="Please help us keep our servers running...">Donate</a></li>
 
+                <%---
+                <li class="${ ni == "payment" ? 'active':''}"><a class="ajax" href="${createLink(uri: '/payment')}" title="Please help us keep our servers running...">Donate</a></li>
+                ---%>
             </ul>
 
         </div><!--/.nav-collapse -->

@@ -9,8 +9,9 @@
 
     <meta name="description" content="Zombie Invasion Global, Chipping in on Bite at a time. The social network for zombies, zombie walks and all things Zombie..."/>
     <meta name="keywords" content="zombie invasion,zombie walk,zombie flashmob,flash mob,zombies,living dead,undead,walking dead,dead,dawn of the dead,social network" />
+    <meta name="author" content="Yakoob Ahmad">
 
-    <link rel="canonical" href="http://zombieinvasion.global/"/>
+    <link rel="canonical" href="https://zombieinvasion.global/"/>
     <link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
     <link rel="icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
 

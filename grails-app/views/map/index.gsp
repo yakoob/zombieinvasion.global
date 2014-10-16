@@ -202,7 +202,7 @@
                 </div>
 
                 <g:render template="/layouts/navigation"/>
-                <div class="alert alert-danger" role="alert"><asset:image src="zombie.svg" width="40"/> <b>Don't worry... Your exact location is not known and cannot be shared... Just the city or neighboring city from which your IP address is served from.</b></div>
+                <div class="alert alert-danger" role="alert"><asset:image src="zombie.svg" width="40" height="50" /> <b>Don't worry... Your exact location is not known and cannot be shared... Just the city or neighboring city from which your IP address is served from.</b></div>
             </div><!-- #header -->
 
 

@@ -5,7 +5,7 @@
 
 
             <div class="alert alert-danger" role="alert">
-                <asset:image src="zombie.svg" width="40"/>
+                <asset:image src="zombie.svg" width="40" height="50"/>
                 <g:if test="${hasStory?.toBoolean()==false}">
                     <strong>Hi <sec:username></sec:username> You have yet to tell your UnDead Story...</strong>
                 </g:if>
@@ -24,7 +24,7 @@
 <sec:ifNotLoggedIn>
 
     <div class="alert alert-danger" role="alert">
-        <asset:image src="zombie.svg" width="40"/>
+        <asset:image src="zombie.svg" width="40" height="50"/>
         <strong>mmm... you have good brains ...</strong>
         <span style="float: right"><a href="${createLink(uri: '/account')}" title="Tell your UnDead story"><button type="button" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-pencil"></span> Login to Tell Your UnDead Story</button></a></span>
     </div>

@@ -29,10 +29,12 @@
                     <span class="badge">2</span>
                     When other zombies comment your Undead Story
                 </li>
+                <%---
                 <li class="list-group-item">
                     <span class="badge">50-2000</span>
                     When a <a class="ajax" href="${createLink(uri: "/payment")}"><b>donation</b></a> is made
                 </li>
+                ---%>
             </ul>
 
 

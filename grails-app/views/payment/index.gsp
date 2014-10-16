@@ -23,8 +23,8 @@
                             data-amount="2"
                             data-custom="${sec.username()}"
                             data-text="$2 Donation"
-                            data-callback="http://zombieinvasion.global/payment/paypal/ipn"
-                            data-return="http://zombieinvasion.global"
+                            data-callback="https://zombieinvasion.global/payment/paypal/ipn"
+                            data-return="https://zombieinvasion.global"
                     ></script>
                 </div>
             </div>
@@ -43,8 +43,8 @@
                             data-amount="10"
                             data-text="$10 Donation"
                             data-custom="${sec.username()}"
-                            data-callback="http://zombieinvasion.global/payment/paypal/ipn"
-                            data-return="http://zombieinvasion.global"
+                            data-callback="https://zombieinvasion.global/payment/paypal/ipn"
+                            data-return="https://zombieinvasion.global"
                     ></script>
 
                 </div>
@@ -63,8 +63,8 @@
                             data-amount="25"
                             data-text="$25 Donation"
                             data-custom="${sec.username()}"
-                            data-callback="http://zombieinvasion.global/payment/paypal/ipn"
-                            data-return="http://zombieinvasion.global"
+                            data-callback="https://zombieinvasion.global/payment/paypal/ipn"
+                            data-return="https://zombieinvasion.global"
                     ></script>
 
                 </div>
@@ -83,8 +83,8 @@
                             data-amount="50"
                             data-text="$50 Donation"
                             data-custom="${sec.username()}"
-                            data-callback="http://zombieinvasion.global/payment/paypal/ipn"
-                            data-return="http://zombieinvasion.global"
+                            data-callback="https://zombieinvasion.global/payment/paypal/ipn"
+                            data-return="https://zombieinvasion.global"
                     ></script>
                 </div>
             </div>
@@ -103,8 +103,8 @@
                             data-amount="100"
                             data-text="$100 Donation"
                             data-custom="${sec.username()}"
-                            data-callback="http://zombieinvasion.global/payment/paypal/ipn"
-                            data-return="http://zombieinvasion.global"
+                            data-callback="https://zombieinvasion.global/payment/paypal/ipn"
+                            data-return="https://zombieinvasion.global"
                     ></script>
 
                 </div>
@@ -116,15 +116,15 @@
                 <img src="${assetPath(src: 'icon_nuclear_vs.png')}" style="height: 100px;">
                 <div class="caption">
                     <h3>Nuclear Zombie <span class="badge">2000 Points</span></h3>
-                    <p>Do you have so much money you have no idea what to do with it???  Well we do...  You'll be awarded with the V.I.Z Five Star Nuclear Zombie which is other was</p>
+                    <p>Do you have so much money you have no idea what to do with it???  Well we do...  You'll be awarded with the V.I.Z Five Star Nuclear Zombie!</p>
                     <script async="async" src="${assetPath(src: 'paypal-button.min.js')}?merchant=info@zombieinvasion.global"
                             data-button="donate"
                             data-name="Donation"
                             data-amount="500"
                             data-text="$500 Donation"
                             data-custom="${sec.username()}"
-                            data-callback="http://zombieinvasion.global/payment/paypal/ipn"
-                            data-return="http://zombieinvasion.global"
+                            data-callback="https://zombieinvasion.global/payment/paypal/ipn"
+                            data-return="https://zombieinvasion.global"
                     ></script>
 
                 </div>

@@ -1,11 +1,13 @@
-package com.the6hours.grails.springsecurity
+package twitter
 
-import com.the6hours.grails.springsecurity.twitter.TwitterAuthToken
 import grails.plugin.springsecurity.SpringSecurityUtils
 import grails.util.Holders
+import org.apache.log4j.Logger
 import org.codehaus.groovy.grails.web.mapping.LinkGenerator
-import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter
+import org.springframework.security.authentication.BadCredentialsException
+import org.springframework.security.authentication.DisabledException
 import org.springframework.security.core.Authentication
+import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter
 import org.springframework.social.connect.Connection
 import org.springframework.social.oauth1.AuthorizedRequestToken
 import org.springframework.social.oauth1.OAuth1Operations
@@ -13,13 +15,11 @@ import org.springframework.social.oauth1.OAuth1Parameters
 import org.springframework.social.oauth1.OAuthToken
 import org.springframework.social.twitter.api.Twitter
 import org.springframework.social.twitter.api.UserOperations
+import org.springframework.social.twitter.connect.TwitterConnectionFactory
+import org.springframework.social.twitter.connect.TwitterServiceProvider
 
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
-import org.apache.log4j.Logger
-import org.springframework.security.authentication.BadCredentialsException
-import org.springframework.security.authentication.DisabledException
-import org.springframework.social.twitter.connect.*
 
 /**
  * Default Authentication filter
@@ -88,7 +88,7 @@ class TwitterAuthFilter extends AbstractAuthenticationProcessingFilter {
         OAuthToken requestToken = (OAuthToken) request.getSession().getAttribute(REQUEST_TOKEN)
 
         OAuthToken accessToken = oauth.exchangeForAccessToken(
-                new AuthorizedRequestToken(requestToken, oauthVerifier), null);
+            new AuthorizedRequestToken(requestToken, oauthVerifier), null);
         request.getSession().removeAttribute(REQUEST_TOKEN)
         return accessToken
     }

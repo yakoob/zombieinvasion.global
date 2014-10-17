@@ -131,7 +131,8 @@ log4j.main = {
             'account',
             'payment',
             'rules',
-            'rank'
+            'rank',
+            'security'
 
     info    'akka',
             'audio',
@@ -146,7 +147,8 @@ log4j.main = {
             'account',
             'payment',
             'rules',
-            'rank'
+            'rank',
+            'security'
 
     debug   'akka',
             'audio',
@@ -161,7 +163,8 @@ log4j.main = {
             'account',
             'payment',
             'rules',
-            'rank'
+            'rank',
+            'security'
 
 
 }
@@ -175,8 +178,7 @@ grails.plugin.springsecurity.userLookup.userDomainClassName = 'user.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'user.UserRole'
 grails.plugin.springsecurity.authority.className = 'user.Role'
 grails.plugin.springsecurity.twitter.domain.classname='user.TwitterUser'
-
-
+grails.plugin.springsecurity.useSecurityEventListener = true
 
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         '/':                              ['permitAll'],

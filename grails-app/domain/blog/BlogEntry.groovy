@@ -33,5 +33,17 @@ class BlogEntry {
         this.addToCategories(new BlogCategory(tag: "UnDead Story", blogEntry: this))
     }
 
+    static List orderByLikesCount(max, offset) {
+
+        String hql = '''
+        SELECT t.id
+        FROM BlogEntry t LEFT JOIN t.likes AS likes
+        GROUP BY t.id
+        ORDER BY COUNT(likes) DESC
+        '''
+        def ids = BlogEntry.executeQuery(hql, [max: max, offset:offset])
+        return BlogEntry.getAll(ids)
+    }
+
 }
 

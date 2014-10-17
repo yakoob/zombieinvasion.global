@@ -17,13 +17,13 @@ class BlogController {
     def index() {
         params.order = "desc"
         params.sort = "id"
-        render view:"index", model:[total:BlogEntry.count, contents: BlogEntry.list(params)]
+        render view:"index", model:[total:BlogEntry.count, contents: BlogEntry.orderByLikesCount(params.max, params.offset)]
     }
 
     def list(){
         params.order = "desc"
         params.sort = "id"
-        render view:"index", model:[total:BlogEntry.count, contents: BlogEntry.list(params)]
+        render view:"index", model:[total:BlogEntry.count, contents: BlogEntry.orderByLikesCount(params.max, params.offset)]
     }
 
     def latest(){

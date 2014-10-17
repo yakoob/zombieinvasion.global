@@ -29,7 +29,6 @@
     <asset:javascript src="bootstrap.min.js"/>
     <asset:javascript src="MainLayoutAPI.js"/>
 
-
     <g:layoutHead/>
 
     <script>

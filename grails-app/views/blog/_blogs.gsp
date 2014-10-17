@@ -40,7 +40,21 @@
             client.subscribe('/topic/blogs', function (message) {
 
                 if (message.body) {
-                    mainLayoutApi.loadBlogs('blogs-content', '${createLink(uri: '/blogs?sort=id&order=desc')}');
+
+                    try {
+                        var tempScrollTop = $(window).scrollTop();
+                        var oldContentHeight=$('#blog_content').innerHeight();
+
+                        $('#blog_content').prepend($.parseJSON(message.body));
+                        var mainLayoutApi = new MainLayoutAPI();
+                        mainLayoutApi.colorBox();
+
+                        var heightDiff=$('#blog_content').innerHeight()-oldContentHeight;
+                        $(window).scrollTop(tempScrollTop+heightDiff);
+                    } catch(e){
+                        // something when wrong
+                    }
+
                 }
 
             });

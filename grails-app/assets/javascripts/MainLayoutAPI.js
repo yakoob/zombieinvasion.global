@@ -87,6 +87,7 @@ var MainLayoutAPI = function(){
 
     }
 
+
     function setPageContentId(id){
         pageContentId = id;
     }
@@ -143,7 +144,8 @@ var MainLayoutAPI = function(){
         loadPage:loadPage,
         searchListener:searchListener,
         webSocketListener:webSocketListener,
-        loadBlogs:loadBlogs
+        loadBlogs:loadBlogs,
+        colorBox:colorBox
     }
 
 

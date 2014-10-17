@@ -26,14 +26,17 @@
                     <g:formRemote id="likeForm${blog.id}" name="likeForm${blog.id}" update="likeResult${blog.id}" url='[uri: "/like/${blog.id}"]'>
                 <ul class="nav nav-pills">
 
-                    <g:if test="${sec.username() == blog.author.username}">
-                    <li>
-                        <a class="ajax" href="${createLink(uri: "/blog/form?id=${blog.id}")}">
-                        <span style="border:0;background-color:transparent;color:#99090A;margin-top: 8px;">
-                            <span class="glyphicon glyphicon-pencil"></span> Edit &nbsp;
-                        </span>
-                        </a>
-                    </li>
+
+                    <g:if test="${!dontShow}">
+                        <g:if test="${sec.username() == blog.author.username}">
+                        <li>
+                            <a class="ajax" href="${createLink(uri: "/blog/form?id=${blog.id}")}">
+                            <span style="border:0;background-color:transparent;color:#99090A;margin-top: 8px;">
+                                <span class="glyphicon glyphicon-pencil"></span> Edit &nbsp;
+                            </span>
+                            </a>
+                        </li>
+                        </g:if>
                     </g:if>
 
                     <li>

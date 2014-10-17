@@ -15,25 +15,21 @@ class BlogController {
     def brokerMessagingTemplate
 
     def index() {
-        params.order = "desc"
-        params.sort = "id"
         render view:"index", model:[total:BlogEntry.count, contents: BlogEntry.orderByLikesCount(params.max, params.offset)]
     }
 
     def list(){
-        params.order = "desc"
-        params.sort = "id"
         render view:"index", model:[total:BlogEntry.count, contents: BlogEntry.orderByLikesCount(params.max, params.offset)]
     }
 
     def latest(){
         def latest
         if (springSecurityService.loggedIn)
-            latest = BlogEntry.findAllByAuthor(springSecurityService.currentUser).id.first()
+            latest = BlogEntry.findAllByAuthor(springSecurityService.currentUser).last()
         else
             latest = BlogEntry.last()
 
-        redirect(uri: "/blogs/${latest}")
+        redirect(uri: "/blogs/${latest?.id}")
     }
 
     def show() {
@@ -89,8 +85,6 @@ class BlogController {
 
                 if (params.id){
 
-                    println "update blog ${params.id}"
-
                     blog = BlogEntry.get(params.id)
 
                     if (!blog) {
@@ -100,7 +94,7 @@ class BlogController {
 
 
                     if (user != blog.author){
-                        render status: HttpStatus.UNAUTHORIZED
+                        render status: HttpStatus.UNAUTHORIZED, text: HttpStatus.UNAUTHORIZED.name()
                         return
                     }
 
@@ -112,11 +106,9 @@ class BlogController {
 
                     render status: HttpStatus.OK
 
-                    notifyJmsBlogsTopic(blog.id)
+                    // notifyJmsBlogsTopic(blog.id)
 
                 } else {
-
-                    println "save new blog"
 
                     blog = new BlogEntry(params)
                     blog.author = user
@@ -129,8 +121,6 @@ class BlogController {
                     zombieManagerService.actorRef.tell(new IncreaseScore(points: 10, name: user.username), akkaService.actorNoSender())
 
                 }
-
-
 
                 return
 
@@ -274,13 +264,15 @@ class BlogController {
     }
 
 
-    def notifyJmsBlogsTopic(id){
+    public void notifyJmsBlogsTopic(id){
 
         def blog = BlogEntry.get(id)
 
         String topic = "/topic/blogs"
 
-        brokerMessagingTemplate.convertAndSend(topic, id)
+        def output = g.render(template:"blog", model:[blog:blog, dontShow:true])
+
+        brokerMessagingTemplate.convertAndSend(topic, output.toString())
 
     }
 

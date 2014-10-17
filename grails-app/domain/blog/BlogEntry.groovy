@@ -26,22 +26,20 @@ class BlogEntry {
         comments lazy: false
         categories lazy: false
         body type: "text"
-        sort id: "desc" // or "asc"
     }
 
     def beforeInsert(){
         this.addToCategories(new BlogCategory(tag: "UnDead Story", blogEntry: this))
     }
 
-    static List orderByLikesCount(max, offset) {
+    static List orderByLikesCount(max=10, offset=0) {
 
         String hql = '''
         SELECT t.id
-        FROM BlogEntry t LEFT JOIN t.likes AS likes
-        GROUP BY t.id
-        ORDER BY COUNT(likes) DESC
+        FROM BlogEntryByLikes t
         '''
-        def ids = BlogEntry.executeQuery(hql, [max: max, offset:offset])
+
+        def ids = BlogEntry.executeQuery(hql, [max: max?:10, offset:offset?:0])
         return BlogEntry.getAll(ids)
     }
 

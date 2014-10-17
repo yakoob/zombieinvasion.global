@@ -12,7 +12,7 @@
 
     <div>
         <div style="float: left; width: 70%">
-            <div class="list" id="blog_content">
+            <div class="list" id="blog_content" class="container_blogs">
                 <g:render template="/blog/blogs" model="[contents:blogs, total:blogsCount, hasStory:hasStory]"/>
             </div>
             <div id="loadingBlogID" style="display: none;"><img src="${resource(dir:'images', file:'loading.png')}" alt=""/></div>

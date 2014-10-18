@@ -39,4 +39,12 @@ class HomeController {
     def about(){
         render view: "/home/about"
     }
+
+    def contestSamsung(){
+
+    }
+
+    def contestXm193(){
+
+    }
 }

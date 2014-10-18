@@ -42,6 +42,9 @@ class UrlMappings {
 
         "/sitemap"(controller: "siteMap", action: "index")
 
+        "/contest/samsung/galaxy4/tab"(controller: "home", action: "contestSamsung")
+        "/contest/xm193"(controller: "home", action: "contestXm193")
+
         "/"(controller: "home", action: "index")
 
         "500"(view:'/error')
